@@ -1,5 +1,8 @@
 import cv2
+import rembg
 from math import hypot, floor, degrees, atan2
+import numpy as np
+from scipy.interpolate import splprep, splev
 
 def convert_img_to_grayscale(img) -> any:
   return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -28,28 +31,38 @@ def identify_faces(img_gray) -> any:
   
   return biggest_face[1]
 
-def crop_img_to_face(img_gray, face) -> any:
+def crop_img_to_face(img, face) -> any:
   perc_increase : float = 0.35
 
   # Crop to biggest face, with a 35% increased area
   (x, y, w, h) = face
   w_increase : int = floor(w * perc_increase)
   h_increase : int = floor(h * perc_increase)
-  crop_img = img_gray[y-h_increase:y+h+h_increase, x-w_increase:x+w+w_increase]
+  crop_img = img[y-h_increase:y+h+h_increase, x-w_increase:x+w+w_increase]
   
   return crop_img
 
-def extract_edges_from_face(img) -> any:
+def remove_background(img) -> any:
+  # Setup RemBG model session
+  # model_name = "u2net_human_seg" # Pretty good. Specifically trained for humans
+  model_name = "isnet-general-use" # Better at hair but had a weird artefact. Possibly ruins the outline.
+  model_session = rembg.new_session(model_name=model_name)
+  
+  no_bg_img = rembg.remove(img, session=model_session, bgcolor=(255,255,255,255)) # Replace background with white.
+  
+  return no_bg_img
+
+def extract_edges_from_face(img, upper=80, lower=130) -> any:
   blurred = cv2.GaussianBlur(img, (5 , 5), 0)
   # images.append(blurred)
-  edges = cv2.Canny(blurred, 80, 130)
+  edges = cv2.Canny(blurred, upper, lower)
   
   return edges
 
-def extract_contours_from_edges(edges) -> any:
+def extract_contours_from_edges(edges) -> tuple:
   contours, hierarchy = cv2.findContours(edges, cv2.RETR_LIST, cv2.CHAIN_APPROX_TC89_KCOS)
   
-  return contours
+  return contours, hierarchy
 
 def simplify_and_split_contours(contours, max_dir_change=90, max_elements_per_array=20, nth_element_simplify=1):  
   def calculate_angle(p1, p2):
@@ -106,3 +119,36 @@ def simplify_and_split_contours(contours, max_dir_change=90, max_elements_per_ar
 def eliminate_negligent_contours(contours, min_contour_len=7):
   # ?? Do some fancy checking of the physical length of the contour
   return [contour for contour in contours if len(contour) >= min_contour_len]
+
+def smooth_contours(contours, points_per_contour=None):
+  def smooth_contour(contour):
+    """
+    Smooth a given contour by approximating it with a 3rd degree polynomial curve in 3D,
+    using the index as the x-value, and then project it back to a 2D curve.
+    
+    Parameters:
+    - contour: The input contour, a list of [x, y] points.
+    
+    Returns:
+    - smoothed_contour: The smoothed 2D contour as a list of [x, y] points.
+    """
+    # Convert contour to an appropriate format and include index as x value
+    x = np.arange(len(contour))
+    y = np.array(contour).reshape(-1, 2).T  # Transpose to have 2 rows: one for x and one for y
+    
+    # Fit a spline to the 3D curve (index, x, y)
+    tck, u = splprep([x, y[0], y[1]], s=3, k=3)
+    
+    # Evaluate the spline across the original parameter range
+    if points_per_contour is None:
+      new_points = splev(u, tck)
+    else:
+      sample_points = np.linspace(0, 1, points_per_contour)
+      new_points = splev(sample_points, tck)
+    
+    # Extract the smoothed curve, ignoring the first dimension (index)
+    smoothed_contour = np.vstack(new_points[1:]).T  # Transpose back to original shape
+    
+    return smoothed_contour
+  
+  return [smooth_contour(contour) for contour in contours]

@@ -155,31 +155,31 @@ for i,img in enumerate(images):
 #     points = np.array(contour).reshape(-1, 2)
 #     plt.plot(points[:, 0], -points[:, 1])
 
-# def smooth_contour(contour):
-#     """
-#     Smooth a given contour by approximating it with a 3rd degree polynomial curve in 3D,
-#     using the index as the x-value, and then project it back to a 2D curve.
+def smooth_contour(contour):
+    """
+    Smooth a given contour by approximating it with a 3rd degree polynomial curve in 3D,
+    using the index as the x-value, and then project it back to a 2D curve.
     
-#     Parameters:
-#     - contour: The input contour, a list of [x, y] points.
+    Parameters:
+    - contour: The input contour, a list of [x, y] points.
     
-#     Returns:
-#     - smoothed_contour: The smoothed 2D contour as a list of [x, y] points.
-#     """
-#     # Convert contour to an appropriate format and include index as x value
-#     x = np.arange(len(contour))
-#     y = np.array(contour).reshape(-1, 2).T  # Transpose to have 2 rows: one for x and one for y
+    Returns:
+    - smoothed_contour: The smoothed 2D contour as a list of [x, y] points.
+    """
+    # Convert contour to an appropriate format and include index as x value
+    x = np.arange(len(contour))
+    y = np.array(contour).reshape(-1, 2).T  # Transpose to have 2 rows: one for x and one for y
     
-#     # Fit a spline to the 3D curve (index, x, y)
-#     tck, u = splprep([x, y[0], y[1]], s=3, k=3)
+    # Fit a spline to the 3D curve (index, x, y)
+    tck, u = splprep([x, y[0], y[1]], s=3, k=3)
     
-#     # Evaluate the spline across the original parameter range
-#     new_points = splev(u, tck)
+    # Evaluate the spline across the original parameter range
+    new_points = splev(u, tck)
     
-#     # Extract the smoothed curve, ignoring the first dimension (index)
-#     smoothed_contour = np.vstack(new_points[1:]).T  # Transpose back to original shape
+    # Extract the smoothed curve, ignoring the first dimension (index)
+    smoothed_contour = np.vstack(new_points[1:]).T  # Transpose back to original shape
     
-#     return smoothed_contour
+    return smoothed_contour
 
 # processed_contours = [smooth_contour(contour) for contour in processed_contours if len(contour) >= min_contour_len]
 
