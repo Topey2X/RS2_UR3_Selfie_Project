@@ -1,0 +1,2 @@
+/usr/bin/ar qc libselfTest.a  CMakeFiles/selfTest.dir/__/nearestLineEndpoint.cpp.o
+/usr/bin/ranlib libselfTest.a

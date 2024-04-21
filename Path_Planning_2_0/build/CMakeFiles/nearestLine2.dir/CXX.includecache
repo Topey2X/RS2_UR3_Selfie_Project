@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/nearestLineEndpoint.cpp
+nearestLineEndpoint.h
+/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/nearestLineEndpoint.h
+
+/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/nearestLineEndpoint.h
+vector
+-
+cmath
+-
+iostream
+-
+vector
+-
+cmath
+-
+limits
+-
+fstream
+-
+

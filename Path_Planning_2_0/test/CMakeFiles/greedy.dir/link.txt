@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/greedy.dir/greedyTSP.cpp.o  -o greedy 

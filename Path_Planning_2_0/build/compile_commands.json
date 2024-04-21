@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/build",
+  "command": "/usr/bin/c++    -g   -o CMakeFiles/nearestLine2.dir/main.cpp.o -c /home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/main.cpp",
+  "file": "/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/main.cpp"
+},
+{
+  "directory": "/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/build",
+  "command": "/usr/bin/c++    -g   -o CMakeFiles/nearestLine2.dir/nearestLineEndpoint.cpp.o -c /home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/nearestLineEndpoint.cpp",
+  "file": "/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/nearestLineEndpoint.cpp"
+},
+{
+  "directory": "/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/build/test",
+  "command": "/usr/bin/c++   -I/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/test -I/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/test/.. -isystem /usr/src/gtest/include  -g   -o CMakeFiles/utest.dir/utest.cpp.o -c /home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/test/utest.cpp",
+  "file": "/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/test/utest.cpp"
+},
+{
+  "directory": "/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/build/test",
+  "command": "/usr/bin/c++   -I/usr/src/gtest/include -I/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/test -I/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/test/..  -g   -o CMakeFiles/selfTest.dir/__/nearestLineEndpoint.cpp.o -c /home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/nearestLineEndpoint.cpp",
+  "file": "/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/nearestLineEndpoint.cpp"
+}
+]
