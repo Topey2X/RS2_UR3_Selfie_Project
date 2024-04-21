@@ -1,4 +1,5 @@
 import cv2
+from cv2.typing import MatLike
 import rembg
 from math import hypot, floor, degrees, atan2
 import numpy as np
@@ -7,7 +8,7 @@ from scipy.interpolate import splprep, splev
 def convert_img_to_grayscale(img) -> any:
   return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-def identify_faces(img_gray) -> any:
+def identify_faces(img_gray) -> MatLike:
   faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
   faces = faceCascade.detectMultiScale(
     img_gray,
@@ -31,9 +32,7 @@ def identify_faces(img_gray) -> any:
   
   return biggest_face[1]
 
-def crop_img_to_face(img, face) -> any:
-  perc_increase : float = 0.35
-
+def crop_img_to_face(img, face, perc_increase) -> MatLike:
   # Crop to biggest face, with a 35% increased area
   (x, y, w, h) = face
   w_increase : int = floor(w * perc_increase)
@@ -42,17 +41,51 @@ def crop_img_to_face(img, face) -> any:
   
   return crop_img
 
-def remove_background(img) -> any:
+def remove_background(img) -> MatLike:
   # Setup RemBG model session
   # model_name = "u2net_human_seg" # Pretty good. Specifically trained for humans
   model_name = "isnet-general-use" # Better at hair but had a weird artefact. Possibly ruins the outline.
   model_session = rembg.new_session(model_name=model_name)
   
-  no_bg_img = rembg.remove(img, session=model_session, bgcolor=(255,255,255,255)) # Replace background with white.
+  # no_bg_img = rembg.remove(img, session=model_session, bgcolor=(100,100,100,255)) # Replace background with white.
+  no_bg_img = rembg.remove(img, session=model_session) # Remove background
   
   return no_bg_img
 
-def extract_edges_from_face(img, upper=80, lower=130) -> any:
+def normalise_brightness_contrast(img, target_contrast) -> MatLike:
+    rgb, alpha = img[..., :3], img[..., 3]
+
+    # Convert RGB to grayscale for brightness analysis
+    gray = cv2.cvtColor(rgb, cv2.COLOR_BGR2GRAY)
+
+    # Calculate the average brightness of the face only
+    mask = alpha > 0  # Mask where alpha is not zero
+    masked_gray = gray[mask]
+    average_brightness = np.mean(masked_gray)
+    
+    # Calculate beta - adjustment for brightness
+    # beta = target_brightness - average_brightness
+    beta = 0
+    
+    # Calculate alpha - adjustment for contrast
+    # alpha_adj = target_contrast if average_brightness < target_brightness else 1 / target_contrast
+    alpha_adj = target_contrast
+    
+    # Prepare the adjusted RGB image
+    adjusted_rgb = cv2.convertScaleAbs(rgb, alpha=alpha_adj, beta=beta)
+    
+    # Blend the adjusted RGB image with the original based on alpha values
+    # Pixels with no transparency receive full change, those with full transparency remain unchanged
+    alpha_factor = alpha / 255.0  # Normalize alpha to range [0, 1]
+    alpha_factor = alpha_factor[..., None]  # Expand dims to broadcast in multiplication
+    blended_rgb = (1 - alpha_factor) * rgb + alpha_factor * adjusted_rgb
+    
+    # Combine the blended RGB with the original alpha channel
+    adjusted_image = np.dstack((blended_rgb, alpha)).astype(np.uint8)
+    
+    return adjusted_image
+
+def extract_edges_from_face(img, upper, lower) -> MatLike:
   blurred = cv2.GaussianBlur(img, (5 , 5), 0)
   # images.append(blurred)
   edges = cv2.Canny(blurred, upper, lower)
@@ -64,7 +97,7 @@ def extract_contours_from_edges(edges) -> tuple:
   
   return contours, hierarchy
 
-def simplify_and_split_contours(contours, max_dir_change=90, max_elements_per_array=20, nth_element_simplify=1):  
+def simplify_and_split_contours(contours, max_dir_change=90, max_elements_per_array=20, nth_element_simplify=1) -> list:  
   def calculate_angle(p1, p2):
       """Calculate the angle between two points from the horizontal."""
       dx = p2[0] - p1[0]
@@ -116,11 +149,11 @@ def simplify_and_split_contours(contours, max_dir_change=90, max_elements_per_ar
    
   return processed_contours
 
-def eliminate_negligent_contours(contours, min_contour_len=7):
+def eliminate_negligent_contours(contours, min_contour_len=7) -> list:
   # ?? Do some fancy checking of the physical length of the contour
   return [contour for contour in contours if len(contour) >= min_contour_len]
 
-def smooth_contours(contours, points_per_contour=None):
+def smooth_contours(contours, points_per_contour=None) -> list:
   def smooth_contour(contour):
     """
     Smooth a given contour by approximating it with a 3rd degree polynomial curve in 3D,

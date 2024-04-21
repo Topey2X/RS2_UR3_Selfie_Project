@@ -1,4 +1,4 @@
-from img_processing_functions import *
+from OpenCVTest.lib_img_processing import *
 
 import cv2
 import numpy as np

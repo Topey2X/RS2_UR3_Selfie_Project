@@ -1,4 +1,4 @@
-from img_processing_functions import *
+from OpenCVTest.lib_img_processing import *
 from typing import List, Tuple
 from cv2.typing import MatLike
 
@@ -14,15 +14,19 @@ def process_image(img : MatLike) -> any:
   face = identify_faces(img_gray)
   
   # Step 6: Crop to Face
-  cropped_img = crop_img_to_face(img, face)
+  cropped_img = crop_img_to_face(img, face, perc_increase=0.35)
   add_plot("Image", "Cropped to Face", cropped_img)
   
   # Step 7: Remove Background from Face
   no_bg_img = remove_background(cropped_img)
   add_plot("Image", "No Background", no_bg_img)
   
+  # Step 6: Normalise Image Brightness and Contrast
+  normalised_img = normalise_brightness_contrast(no_bg_img, target_contrast=1.4)
+  add_plot("Image", "Normalised", normalised_img)
+  
   # Step 8: Extract Edges from Face
-  edges_img = extract_edges_from_face(no_bg_img)
+  edges_img = extract_edges_from_face(normalised_img, upper=80, lower=130)
   add_plot("Image", "Edges", edges_img)
   
   # Step 9: Extract Contours from Edges
@@ -53,7 +57,7 @@ def show_to_screen() -> None:
   import matplotlib.pyplot as plt
   
   fig = plt.figure(figsize=(16, 8))
-  columns = 3
+  columns = 4
   rows = ((len(plots)-1) // columns)+1
   
   for i, (type, title, data) in enumerate(plots):
@@ -83,11 +87,11 @@ def save_contours(contours):
 
 if __name__ == '__main__':
   if DEBUG:
-    img = cv2.imread("OpenCVTest/assets/easy_girl.jpg")
+    img = cv2.imread("OpenCVTest/assets/one_face_busy_bg.jpg")
     save_contours(process_image(img))
     show_to_screen()
   else:
-    from ROS_functions import ROSNODE_img_processor
+    from OpenCVTest.lib_ros_functions import ROSNODE_img_processor
     rosnode = ROSNODE_img_processor(process_image)
     rosnode.run()
   
