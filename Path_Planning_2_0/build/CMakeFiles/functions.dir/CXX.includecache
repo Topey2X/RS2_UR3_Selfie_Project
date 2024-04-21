@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/function.cpp
+function.h
+/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/function.h
+
+/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/function.h
+iostream
+-
+vector
+-
+cmath
+-
+limits
+-
+fstream
+-
+ros/ros.h
+-
+nav_msgs/Path.h
+-
+optimize/Path.h
+-
+

@@ -1,0 +1,95 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0.2"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "test",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0.2"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "optimizeCplusplus",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "nearestLine2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nearestLine2-Debug-56d9ac93c9241c494c63.json",
+					"name" : "nearestLine2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "selfTest::@36f028580bb02cc8272a",
+					"jsonFile" : "target-selfTest-Debug-23cb5b7fe50e35f7d2f9.json",
+					"name" : "selfTest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "utest::@36f028580bb02cc8272a",
+					"jsonFile" : "target-utest-Debug-76ef2c1f0b99b0938f57.json",
+					"name" : "utest",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/build",
+		"source" : "/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

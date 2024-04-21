@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/darren2004/Desktop/Robotics_Studio_2/Path_Planning_2_0/greedyTSP.cpp
+iostream
+-
+vector
+-
+cmath
+-
+limits
+-
+fstream
+-
+
