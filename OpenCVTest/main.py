@@ -1,4 +1,4 @@
-from OpenCVTest.lib_img_processing import *
+from lib_img_processing import *
 from typing import List, Tuple
 from cv2.typing import MatLike
 
@@ -76,9 +76,10 @@ def show_to_screen() -> None:
 
   plt.show()
   
-def save_contours(contours):    
+def save_contours(contours):  
+  from os import mkdir  
   output_file_path = "outputs/output.txt"
-
+  # mkdir("outputs")
   # Exporting the array to the file
   with open(output_file_path, "w") as file:
       for contour in contours:
@@ -87,7 +88,7 @@ def save_contours(contours):
 
 if __name__ == '__main__':
   if DEBUG:
-    img = cv2.imread("OpenCVTest/assets/one_face_busy_bg.jpg")
+    img = cv2.imread("OpenCVTest/assets/two_faces.jpg")
     save_contours(process_image(img))
     show_to_screen()
   else:
