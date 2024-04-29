@@ -17,7 +17,7 @@ class ROSNODE_img_processor:
 
   def init_ros(self, process: function):
     self._processing_function = process
-    rospy.init_node("distance_to_hazards")
+    rospy.init_node("selfie_image_processor")
     self._rate = rospy.Rate(5)
     rospy.Subscriber("/usbcam/image", TYPE_TODO, self.image_callback)
     self.pub_detected = rospy.Publisher("/selfie/lines", TYPE_TODO, queue_size=1)

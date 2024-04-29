@@ -62,16 +62,15 @@ def show_to_screen() -> None:
   
   for i, (type, title, data) in enumerate(plots):
     ax = fig.add_subplot(rows, columns, i+1)
-    match type:
-      case "Image":
-        plt.imshow(cv2.cvtColor(data, cv2.COLOR_BGR2RGB))
-      case "GreyImage":
-        plt.imshow(data, cmap = plt.cm.gray)
-      case "Contours":
-        for contour in data:
-          points = np.array(contour).reshape(-1, 2)
-          plt.plot(points[:, 0], -points[:, 1])
-        ax.set_aspect('equal')
+    if type == "Image":
+      plt.imshow(cv2.cvtColor(data, cv2.COLOR_BGR2RGB))
+    elif type == "GreyImage":
+      plt.imshow(data, cmap = plt.cm.gray)
+    elif type == "Contours":
+      for contour in data:
+        points = np.array(contour).reshape(-1, 2)
+        plt.plot(points[:, 0], -points[:, 1])
+      ax.set_aspect('equal')
     ax.set_title(title)
 
   plt.show()
