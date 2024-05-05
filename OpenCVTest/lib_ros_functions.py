@@ -1,34 +1,31 @@
+#!/usr/bin/env python
 import rospy
+from geometry_msgs.msg import Point32
+from your_package_name.msg import ContourList, Contour # TODO
+from typing import list, tuple
 
-class ROSNODE_img_processor:
-  latest_image = None
-  latest_output = None
+def publish_contours(contours : list[list[tuple[float, float]]]):
+    rospy.init_node('contour_publisher', anonymous=True)
+    pub = rospy.Publisher('contours', ContourList, queue_size=10)
 
-  _rate = None
-  _sub_webcam = None
-  _pub_contours = None
+    # Build the message
+    contour_list_msg = ContourList()
+    for contour in contours:
+        contour_msg = Contour()
+        contour_msg.contour = [Point32(x, y, 0.0) for x, y in contour]
+        contour_list_msg.contours.append(contour_msg)
 
-  _process_flag = False
-  _processing_function: function = None
-
-  def image_callback(self, data):
-    self.latest_image = data.pose.pose.position  # TODO
-    self._process_flag = True
-
-  def init_ros(self, process: function):
-    self._processing_function = process
-    rospy.init_node("distance_to_hazards")
-    self._rate = rospy.Rate(5)
-    rospy.Subscriber("/usbcam/image", TYPE_TODO, self.image_callback)
-    self.pub_detected = rospy.Publisher("/selfie/lines", TYPE_TODO, queue_size=1)
-
-  def __init__(self, process: function):
-    self.init_ros(process)
-
-  def run(self):
-    while not rospy.is_shutdown():
-      if self._process_flag:
-        self._process_flag = False
-        self._processing_function()
-        self._pub_contours.publish()
-      self._rate.sleep()
+    # Publish the message
+    pub.publish(contour_list_msg)
+    rospy.loginfo("Contours published, node will now shutdown.")
+    rospy.signal_shutdown("Completed single message publication")
+    
+if __name__ == '__main__':
+  contours = [
+        [(1.0, 2.0), (3.0, 4.0)],
+        [(5.0, 6.0), (7.0, 8.0)]
+    ]
+  try:
+      publish_contours(contours)
+  except rospy.ROSInterruptException:
+      pass
