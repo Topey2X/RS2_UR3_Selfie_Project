@@ -1,0 +1,8 @@
+prefix=/home/darren2004/catkin_ws/src/optimize/build/devel
+
+Name: optimize
+Description: Description of optimize
+Version: 0.0.0
+Cflags: -I/home/darren2004/catkin_ws/src/optimize/build/devel/include
+Libs: -L${prefix}/lib 
+Requires: roscpp geometry_msgs message_runtime

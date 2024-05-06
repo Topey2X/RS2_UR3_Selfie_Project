@@ -1,0 +1,4 @@
+<launch>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find optimize)/rviz/config.rviz"/>
+  <node name="optimization" pkg="optimize" type="optimization" output="screen"/>
+</launch>
