@@ -1,0 +1,2 @@
+set(robotSelfie_MESSAGE_FILES "/home/darren2004/catkin_ws/src/robotSelfie/msg/ContourList.msg")
+set(robotSelfie_SERVICE_FILES "")
