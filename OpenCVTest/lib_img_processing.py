@@ -56,12 +56,12 @@ def normalise_brightness_contrast(img, target_contrast) -> MatLike:
     rgb, alpha = img[..., :3], img[..., 3]
 
     # Convert RGB to grayscale for brightness analysis
-    gray = cv2.cvtColor(rgb, cv2.COLOR_BGR2GRAY)
+    # gray = cv2.cvtColor(rgb, cv2.COLOR_BGR2GRAY)
 
     # Calculate the average brightness of the face only
-    mask = alpha > 0  # Mask where alpha is not zero
-    masked_gray = gray[mask]
-    average_brightness = np.mean(masked_gray)
+    # mask = alpha > 0  # Mask where alpha is not zero
+    # masked_gray = gray[mask]
+    # average_brightness = np.mean(masked_gray)
     
     # Calculate beta - adjustment for brightness
     # beta = target_brightness - average_brightness
@@ -93,7 +93,8 @@ def extract_edges_from_face(img, upper, lower) -> MatLike:
   return edges
 
 def extract_contours_from_edges(edges) -> tuple:
-  contours, hierarchy = cv2.findContours(edges, cv2.RETR_LIST, cv2.CHAIN_APPROX_TC89_KCOS)
+  contours, hierarchy = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE) 
+  # contours, hierarchy = cv2.findContours(edges, cv2.RETR_LIST, cv2.CHAIN_APPROX_TC89_KCOS) 
   
   return contours, hierarchy
 

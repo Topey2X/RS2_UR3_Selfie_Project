@@ -3,4 +3,3 @@ python-opencv-utils
 opencv-python
 matplotlib
 rembg
-rospy
