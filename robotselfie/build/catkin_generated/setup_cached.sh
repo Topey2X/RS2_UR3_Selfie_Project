@@ -7,9 +7,10 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/darren2004/catkin_ws/src/robotselfie/build/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/darren2004/catkin_ws/src/robotselfie/build/devel/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/darren2004/catkin_ws/src/robotselfie/build/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PWD='/home/darren2004/catkin_ws/src/robotselfie/build'
-export ROSLISP_PACKAGE_DIRECTORIES="/home/darren2004/catkin_ws/src/robotselfie/build/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/darren2004/catkin_ws/src/robotselfie:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/darren2004/git/RS2_UR3_Selfie_Project/robotselfie/build/devel:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/darren2004/git/RS2_UR3_Selfie_Project/robotselfie/build/devel/lib:$LD_LIBRARY_PATH"
+export PATH='/opt/ros/noetic/bin:/home/darren2004/.local/bin:/home/darren2004/.local/bin:/home/darren2004/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'
+export PKG_CONFIG_PATH="/home/darren2004/git/RS2_UR3_Selfie_Project/robotselfie/build/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PWD='/home/darren2004/git/RS2_UR3_Selfie_Project/robotselfie/build'
+export ROSLISP_PACKAGE_DIRECTORIES="/home/darren2004/git/RS2_UR3_Selfie_Project/robotselfie/build/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/darren2004/catkin_ws/src/robotselfie:/home/darren2004/git/RS2_UR3_Selfie_Project/robotselfie:$ROS_PACKAGE_PATH"

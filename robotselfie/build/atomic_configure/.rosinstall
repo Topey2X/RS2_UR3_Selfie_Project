@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/darren2004/catkin_ws/src/robotselfie/build/devel/setup.sh
+    local-name: /home/darren2004/git/RS2_UR3_Selfie_Project/robotselfie/build/devel/setup.sh

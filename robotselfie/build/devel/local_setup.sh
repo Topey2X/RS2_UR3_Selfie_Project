@@ -3,7 +3,7 @@
 
 # since this file is sourced either use the provided _CATKIN_SETUP_DIR
 # or fall back to the destination set at configure time
-: ${_CATKIN_SETUP_DIR:=/home/darren2004/catkin_ws/src/robotselfie/build/devel}
+: ${_CATKIN_SETUP_DIR:=/home/darren2004/git/RS2_UR3_Selfie_Project/robotselfie/build/devel}
 CATKIN_SETUP_UTIL_ARGS="--extend --local"
 . "$_CATKIN_SETUP_DIR/setup.sh"
 unset CATKIN_SETUP_UTIL_ARGS
