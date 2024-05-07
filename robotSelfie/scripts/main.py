@@ -290,7 +290,7 @@ def publish_contours(contours):
   contour_list_msg = ContourList()
   for contour in contours:
       contour_msg = Contour()
-      contour_msg.contour = [Point(x, y, 0.0) for x, y in contour[:, 0]]
+      contour_msg.points = [Point(x, y, 0.0) for x, y in contour]
       contour_list_msg.contours.append(contour_msg)
 
   # Publish the message
@@ -300,7 +300,8 @@ def publish_contours(contours):
 
 if __name__ == '__main__':
   if DEBUG:
-    img = cv2.imread("OpenCVTest/assets/two_faces.jpg")
+    # img = cv2.imread("OpenCVTest/assets/two_faces.jpg")
+    img = cv2.imread("/home/darren2004/git/RS2_UR3_Selfie_Project/robotSelfie/scripts/OpenCVTest/assets/two_faces.jpg")
   
   try:
       contours = process_image(img)
