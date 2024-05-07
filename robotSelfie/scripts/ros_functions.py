@@ -2,9 +2,8 @@
 import rospy
 from geometry_msgs.msg import Point32
 from robotselfie.msg import ContourList, Contour # TODO
-from typing import list, tuple
 
-def publish_contours(contours : list[list[tuple[float, float]]]):
+def publish_contours(contours):
     rospy.init_node('contour_publisher', anonymous=True)
     pub = rospy.Publisher('contours', ContourList, queue_size=10)
 

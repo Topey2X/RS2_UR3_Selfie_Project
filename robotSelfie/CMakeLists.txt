@@ -167,7 +167,7 @@ target_link_libraries(path_optimizer ${catkin_LIBRARIES})
 
 catkin_install_python(PROGRAMS
   scripts/img_processing.py
-  scripts/lib_ros_functions.py
+  scripts/ros_functions.py
   scripts/main.py
   scripts/tests.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}/scripts
