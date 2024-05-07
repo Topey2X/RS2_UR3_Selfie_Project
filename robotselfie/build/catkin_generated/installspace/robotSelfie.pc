@@ -1,7 +1,7 @@
 prefix=/usr/local
 
-Name: robotSelfie
-Description: Description of robotSelfie
+Name: robotselfie
+Description: Description of robotselfie
 Version: 0.0.0
 Cflags: 
 Libs: -L${prefix}/lib 

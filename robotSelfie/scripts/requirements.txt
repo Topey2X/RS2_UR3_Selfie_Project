@@ -1,5 +1,0 @@
-numpy 
-python-opencv-utils
-opencv-python
-matplotlib
-rembg

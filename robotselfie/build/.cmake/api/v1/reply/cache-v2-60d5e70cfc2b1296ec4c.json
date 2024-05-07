@@ -47,7 +47,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/darren2004/catkin_ws/src/robotSelfie/build/catkin_generated/env_cached.sh"
+			"value" : "/home/darren2004/catkin_ws/src/robotselfie/build/catkin_generated/env_cached.sh"
 		},
 		{
 			"name" : "CATKIN_PACKAGE_PREFIX",
@@ -95,7 +95,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/darren2004/catkin_ws/src/robotSelfie/build/test_results"
+			"value" : "/home/darren2004/catkin_ws/src/robotselfie/build/test_results"
 		},
 		{
 			"name" : "CMAKE_ADDR2LINE",
@@ -151,7 +151,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/darren2004/catkin_ws/src/robotSelfie/build"
+			"value" : "/home/darren2004/catkin_ws/src/robotselfie/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -739,7 +739,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/darren2004/catkin_ws/src/robotSelfie"
+			"value" : "/home/darren2004/catkin_ws/src/robotselfie"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -1239,7 +1239,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "robotSelfie"
+			"value" : "robotselfie"
 		},
 		{
 			"name" : "CMAKE_PROJECT_VERSION",
@@ -1699,7 +1699,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/darren2004/catkin_ws/src/robotSelfie/build/gmock"
+			"value" : "/home/darren2004/catkin_ws/src/robotselfie/build/gmock"
 		},
 		{
 			"name" : "GMOCK_FROM_SOURCE_MAIN_LIBRARIES",
@@ -1835,7 +1835,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/darren2004/catkin_ws/src/robotSelfie/build/gtest"
+			"value" : "/home/darren2004/catkin_ws/src/robotselfie/build/gtest"
 		},
 		{
 			"name" : "GTEST_FROM_SOURCE_MAIN_LIBRARIES",
@@ -2195,7 +2195,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/darren2004/catkin_ws/src/robotSelfie/build/gtest/googlemock"
+			"value" : "/home/darren2004/catkin_ws/src/robotselfie/build/gtest/googlemock"
 		},
 		{
 			"name" : "gmock_LIB_DEPENDS",
@@ -2259,7 +2259,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/darren2004/catkin_ws/src/robotSelfie/build/gtest"
+			"value" : "/home/darren2004/catkin_ws/src/robotselfie/build/gtest"
 		},
 		{
 			"name" : "googletest-distribution_SOURCE_DIR",
@@ -2283,7 +2283,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/darren2004/catkin_ws/src/robotSelfie/build/gtest/googletest"
+			"value" : "/home/darren2004/catkin_ws/src/robotselfie/build/gtest/googletest"
 		},
 		{
 			"name" : "gtest_SOURCE_DIR",
@@ -2414,7 +2414,7 @@
 			"value" : "/opt/ros/noetic/share/message_runtime/cmake"
 		},
 		{
-			"name" : "robotSelfie_BINARY_DIR",
+			"name" : "robotselfie_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -2423,10 +2423,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/darren2004/catkin_ws/src/robotSelfie/build"
+			"value" : "/home/darren2004/catkin_ws/src/robotselfie/build"
 		},
 		{
-			"name" : "robotSelfie_SOURCE_DIR",
+			"name" : "robotselfie_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -2435,7 +2435,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/darren2004/catkin_ws/src/robotSelfie"
+			"value" : "/home/darren2004/catkin_ws/src/robotselfie"
 		},
 		{
 			"name" : "rosconsole_DIR",

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/darren2004/catkin_ws/src/robotSelfie
+CMAKE_SOURCE_DIR = /home/darren2004/catkin_ws/src/robotselfie
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/darren2004/catkin_ws/src/robotSelfie/build
+CMAKE_BINARY_DIR = /home/darren2004/catkin_ws/src/robotselfie/build
 
 # Utility rule file for doxygen.
 
@@ -67,6 +67,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd /home/darren2004/catkin_ws/src/robotSelfie/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/darren2004/catkin_ws/src/robotSelfie /home/darren2004/catkin_ws/src/robotSelfie /home/darren2004/catkin_ws/src/robotSelfie/build /home/darren2004/catkin_ws/src/robotSelfie/build /home/darren2004/catkin_ws/src/robotSelfie/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/darren2004/catkin_ws/src/robotselfie/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/darren2004/catkin_ws/src/robotselfie /home/darren2004/catkin_ws/src/robotselfie /home/darren2004/catkin_ws/src/robotselfie/build /home/darren2004/catkin_ws/src/robotselfie/build /home/darren2004/catkin_ws/src/robotselfie/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 

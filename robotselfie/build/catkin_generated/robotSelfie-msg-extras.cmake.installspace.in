@@ -1,2 +1,2 @@
-set(robotSelfie_MESSAGE_FILES "msg/ContourList.msg")
-set(robotSelfie_SERVICE_FILES "")
+set(robotselfie_MESSAGE_FILES "msg/ContourList.msg")
+set(robotselfie_SERVICE_FILES "")

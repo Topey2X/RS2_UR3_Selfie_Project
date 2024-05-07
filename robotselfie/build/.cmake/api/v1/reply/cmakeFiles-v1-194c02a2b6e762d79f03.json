@@ -1303,8 +1303,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/darren2004/catkin_ws/src/robotSelfie/build",
-		"source" : "/home/darren2004/catkin_ws/src/robotSelfie"
+		"build" : "/home/darren2004/catkin_ws/src/robotselfie/build",
+		"source" : "/home/darren2004/catkin_ws/src/robotselfie"
 	},
 	"version" : 
 	{

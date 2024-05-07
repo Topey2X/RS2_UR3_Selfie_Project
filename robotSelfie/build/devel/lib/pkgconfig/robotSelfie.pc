@@ -1,8 +1,0 @@
-prefix=/home/darren2004/catkin_ws/src/robotSelfie/build/devel
-
-Name: robotSelfie
-Description: Description of robotSelfie
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

@@ -145,7 +145,7 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/darren2004/catkin_ws/src/robotSelfie/build/gtest/lib",
+				"fragment" : "-Wl,-rpath,/home/darren2004/catkin_ws/src/robotselfie/build/gtest/lib",
 				"role" : "libraries"
 			},
 			{

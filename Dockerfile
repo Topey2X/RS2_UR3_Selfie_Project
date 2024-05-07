@@ -18,7 +18,7 @@ RUN mkdir -p /catkin_ws/src/
 WORKDIR /catkin_ws
 
 # Optionally copy your ROS packages into the container
-# COPY ./robotSelfie /catkin_ws/src/robotSelfie
+# COPY ./robotselfie /catkin_ws/src/robotselfie
 
 # Install dependencies for any packages in src
 # RUN rosdep install --from-paths src --ignore-src -r -y
@@ -33,4 +33,4 @@ ENV ROS_PACKAGE_PATH=/catkin_ws/src:$ROS_PACKAGE_PATH
 # CMD ["roslaunch", "my_package my_launch_file.launch"]
 CMD ["bash"]
 
-# docker run -it --device /dev/video0:/dev/video0 --name rs2 --volume ~/Uni/2024-Autumn/Robotics-Studio-2/ROS/RS2_UR3_Selfie_Project/robotSelfie:/home/ros/robotSelfie ros-rs2 
+# docker run -it --device /dev/video0:/dev/video0 --name rs2 --volume ~/Uni/2024-Autumn/Robotics-Studio-2/ROS/RS2_UR3_Selfie_Project/robotselfie:/home/ros/robotselfie ros-rs2 

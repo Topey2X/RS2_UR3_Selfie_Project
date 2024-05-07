@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/darren2004/catkin_ws/src/robotSelfie
+CMAKE_SOURCE_DIR = /home/darren2004/catkin_ws/src/robotselfie
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/darren2004/catkin_ws/src/robotSelfie/build
+CMAKE_BINARY_DIR = /home/darren2004/catkin_ws/src/robotselfie/build
 
 # Utility rule file for std_msgs_generate_messages_nodejs.
 
@@ -67,6 +67,6 @@ CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean:
 .PHONY : CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 
 CMakeFiles/std_msgs_generate_messages_nodejs.dir/depend:
-	cd /home/darren2004/catkin_ws/src/robotSelfie/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/darren2004/catkin_ws/src/robotSelfie /home/darren2004/catkin_ws/src/robotSelfie /home/darren2004/catkin_ws/src/robotSelfie/build /home/darren2004/catkin_ws/src/robotSelfie/build /home/darren2004/catkin_ws/src/robotSelfie/build/CMakeFiles/std_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/darren2004/catkin_ws/src/robotselfie/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/darren2004/catkin_ws/src/robotselfie /home/darren2004/catkin_ws/src/robotselfie /home/darren2004/catkin_ws/src/robotselfie/build /home/darren2004/catkin_ws/src/robotselfie/build /home/darren2004/catkin_ws/src/robotselfie/build/CMakeFiles/std_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/std_msgs_generate_messages_nodejs.dir/depend
 

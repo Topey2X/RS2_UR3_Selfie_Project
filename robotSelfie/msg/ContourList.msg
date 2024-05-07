@@ -1,4 +1,0 @@
-# ContourList.msg
-
-
-Contour[] contours
