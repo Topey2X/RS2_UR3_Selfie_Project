@@ -1,8 +1,8 @@
 import cv2
 from img_processing import *
+from ros_functions import *
 from typing import List, Tuple
 from cv2.typing import MatLike
-from lib_ros_functions import ROSNODE_img_processor
 
 DEBUG = True
 
@@ -78,25 +78,23 @@ def show_to_screen() -> None:
   plt.show()
   
 def save_contours(contours):
-    import os
-    output_dir = "outputs"
-    output_file_path = os.path.join(output_dir, "output.txt")
-    
-    # Create the 'outputs' directory if it doesn't exist
-    os.makedirs(output_dir, exist_ok=True)
-    
-    # Write the contours to the file
-    with open(output_file_path, "w") as file:
-        for contour in contours:
-            file.write(str(contour) + '\n')
+  import os
+  output_dir = "outputs"
+  output_file_path = os.path.join(output_dir, "output.txt")
+  
+  # Create the 'outputs' directory if it doesn't exist
+  os.makedirs(output_dir, exist_ok=True)
+  
+  # Write the contours to the file
+  with open(output_file_path, "w") as file:
+    for contour in contours:
+      file.write(str(contour) + '\n')
   
 
 if __name__ == '__main__':
-    if DEBUG:
-        img = cv2.imread("OpenCVTest/assets/two_faces.jpg")
-        save_contours(process_image(img))
-        show_to_screen()
+  if DEBUG:
+    img = cv2.imread("OpenCVTest/assets/two_faces.jpg")
+    save_contours(process_image(img))
+    show_to_screen()
 else:
-    from lib_ros_functions import ROSNODE_img_processor
-    rosnode = ROSNODE_img_processor(process_image)
-    rosnode.run()
+  publish_contours(process_image)
