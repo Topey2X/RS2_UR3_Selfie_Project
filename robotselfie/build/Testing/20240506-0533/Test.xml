@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20240506-0533-Experimental"
+	Name="darren2004-XPS-9315"
+	Generator="ctest-3.16.3"
+	CompilerName="/usr/bin/c++"
+	CompilerVersion="9.4.0"
+	OSName="Linux"
+	Hostname="darren2004-XPS-9315"
+	OSRelease="5.15.0-105-generic"
+	OSVersion="#115~20.04.1-Ubuntu SMP Mon Apr 15 17:33:04 UTC 2024"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="154"
+	ProcessorCacheSize="12288"
+	NumberOfLogicalCPU="12"
+	NumberOfPhysicalCPU="10"
+	TotalVirtualMemory="7628"
+	TotalPhysicalMemory="15612"
+	LogicalProcessorsPerPhysical="1"
+	ProcessorClockFrequency="1900"
+	>
+	<Testing>
+		<StartDateTime>May 06 15:44 AEST</StartDateTime>
+		<StartTestTime>1714974257</StartTestTime>
+		<TestList/>
+		<EndDateTime>May 06 15:44 AEST</EndDateTime>
+		<EndTestTime>1714974257</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
