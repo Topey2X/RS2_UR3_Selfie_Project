@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import rospy
-from geometry_msgs.msg import Point32
+from geometry_msgs.msg import Point32, Point
 from robotselfie.msg import ContourList, Contour
 import cv2
 # from img_processing import *
@@ -290,7 +290,7 @@ def publish_contours(contours):
   contour_list_msg = ContourList()
   for contour in contours:
       contour_msg = Contour()
-      contour_msg.contour = [Point32(x, y, 0.0) for x, y in contour]
+      contour_msg.contour = [Point(x, y, 0.0) for x, y in contour[:, 0]]
       contour_list_msg.contours.append(contour_msg)
 
   # Publish the message
