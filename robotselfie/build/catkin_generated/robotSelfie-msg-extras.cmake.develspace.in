@@ -1,2 +1,0 @@
-set(robotselfie_MESSAGE_FILES "/home/darren2004/catkin_ws/src/robotselfie/msg/ContourList.msg")
-set(robotselfie_SERVICE_FILES "")
