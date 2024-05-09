@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import rospy
 from geometry_msgs.msg import Point32, Point
-from robotselfie.msg import ContourList, Contour
+from robotSelfie.msg import ContourList, Contour
 import cv2
 # from img_processing import *
 # from ros_functions import *
@@ -283,7 +283,8 @@ def smooth_contours(contours, points_per_contour=None) -> list:
   return [smooth_contour(contour) for contour in contours]
 
 def publish_contours(contours):
-  rospy.init_node('contour_publisher', anonymous=True)
+  rospy.init_node('contour_publisher')
+  print("contour_publisher node initialized")
   pub = rospy.Publisher('contours', ContourList, queue_size=10)
 
   # Build the message
@@ -294,9 +295,14 @@ def publish_contours(contours):
       contour_list_msg.contours.append(contour_msg)
 
   # Publish the message
-  pub.publish(contour_list_msg)
-  rospy.loginfo("Contours published, node will now shutdown.")
-  rospy.signal_shutdown("Completed single message publication")
+  # print("Contour list message:")
+  # print(contour_list_msg)
+
+  # Send message in a continous method
+  rate = rospy.Rate(1)  # Publish at 1 Hz
+  while not rospy.is_shutdown():
+      pub.publish(contour_list_msg)
+      rate.sleep()
 
 if __name__ == '__main__':
   if DEBUG:

@@ -1,0 +1,17 @@
+
+<launch>
+  <!-- Launch the contour_publisher node -->
+  <node name="contour_publisher" pkg="robotSelfie" type="main.py" output="screen"/>
+
+  <!-- Launch the path_optimizer node -->
+  <node name="path_optimizer" pkg="robotSelfie" type="path_optimizer" output="screen"/>
+
+  <!-- <node name="optimized_path_echo" pkg="rostopic" type="rostopic" args="echo /optimized_path" output="screen">
+    <param name="launch_prefix" value="xterm -e" />
+  </node> -->
+
+  <!-- Launch rqt_graph -->
+  <node name="rqt_graph" pkg="rqt_graph" type="rqt_graph" output="screen"/>
+
+  <!-- Add more nodes as needed -->
+</launch>
