@@ -307,7 +307,7 @@ def publish_contours(contours):
 if __name__ == '__main__':
   if DEBUG:
     # img = cv2.imread("OpenCVTest/assets/two_faces.jpg")
-    img = cv2.imread("/home/darren2004/git/RS2_UR3_Selfie_Project/robotSelfie/scripts/OpenCVTest/assets/two_faces.jpg")
+    img = cv2.imread("/home/darren2004/git/RS2_UR3_Selfie_Project/robotSelfie/scripts/OpenCVTest/assets/booboo.jpg")
   
   try:
       contours = process_image(img)

@@ -43,11 +43,11 @@ double calculateTotalDistance(const std::vector<std::vector<Point>>& path) {
     return totalDistance;
 }
 
-nav_msgs::Path optimizePathWithLiftoff(const std::vector<std::vector<Point>>& lines, bool printDistances) {
+std::vector<std::vector<Point>> optimizePathWithLiftoff(const std::vector<std::vector<Point>>& lines, bool printDistances) {
     ROS_INFO("Optimizing path");
     
     std::vector<double> startPointDistances;
-    std::vector<nav_msgs::Path> optimizedPaths;
+    std::vector<std::vector<std::vector<Point>>> optimizedPaths;
     
     // Calculate the optimized path for each possible starting point
     for (const auto& line : lines) {
@@ -103,24 +103,7 @@ nav_msgs::Path optimizePathWithLiftoff(const std::vector<std::vector<Point>>& li
         double totalDistance = calculateTotalDistance(optimizedPath);
         startPointDistances.push_back(totalDistance);
         
-        nav_msgs::Path path_msg;
-        path_msg.header.frame_id = "map";
-        path_msg.header.stamp = ros::Time::now();
-
-        for (const auto& segment : optimizedPath) {
-            for (const auto& point : segment) {
-                geometry_msgs::PoseStamped pose;
-                pose.header.frame_id = "map";
-                pose.header.stamp = ros::Time::now();
-                pose.pose.position.x = point.x;
-                pose.pose.position.y = point.y;
-                pose.pose.position.z = point.z;
-                pose.pose.orientation.w = 1.0;
-                path_msg.poses.push_back(pose);
-            }
-        }
-        
-        optimizedPaths.push_back(path_msg);
+        optimizedPaths.push_back(optimizedPath);
     }
     
     // Find the index of the starting point with the minimum total distance
@@ -138,25 +121,21 @@ nav_msgs::Path optimizePathWithLiftoff(const std::vector<std::vector<Point>>& li
     
     return optimizedPaths[minDistanceIndex];
 }
-
-void writeToCsv(const nav_msgs::Path& optimizedPath, const std::string& filename) {
+void writeToCsv(const std::vector<std::vector<Point>>& optimizedPath, const std::string& filename) {
     std::ofstream csvFile(filename);
     if (!csvFile.is_open()) {
-        std::cout << "Failed to open file: " << filename << std::endl;
+        ROS_ERROR("Failed to open file: %s", filename.c_str());
         return;
     }
 
     csvFile << "x,y,z" << std::endl;
-    for (size_t i = 0; i < optimizedPath.poses.size(); ++i) {
-        const auto& pose = optimizedPath.poses[i];
-        csvFile << pose.pose.position.x << "," << pose.pose.position.y << "," << pose.pose.position.z << std::endl;
-        
-        // Write an empty line after each segment
-        if (i < optimizedPath.poses.size() - 1 && pose.pose.position.z != optimizedPath.poses[i + 1].pose.position.z) {
-            csvFile << std::endl;
+    for (const auto& segment : optimizedPath) {
+        for (const auto& point : segment) {
+            csvFile << point.x << "," << point.y << "," << point.z << std::endl;
         }
+        csvFile << std::endl;
     }
 
     csvFile.close();
-    std::cout << filename << " generated." << std::endl;
+    ROS_INFO("CSV file generated: %s", filename.c_str());
 }
