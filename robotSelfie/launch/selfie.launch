@@ -1,12 +1,10 @@
 <launch>
-
   <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen">
-        <param name="video_device" value="/dev/video0" />
-        <param name="pixel_format" value="yuyv" />
-        <param name="image_width" value="1280" />
-        <param name="image_height" value="720" />
+    <param name="video_device" value="/dev/video0" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="image_width" value="1280" />
+    <param name="image_height" value="720" />
   </node>
-
   <!-- Launch the contour_publisher node -->
   <node name="contour_publisher" pkg="robotSelfie" type="main.py" output="screen"/>
 
@@ -20,6 +18,7 @@
   <!-- Launch rqt_graph -->
   <node name="rqt_graph" pkg="rqt_graph" type="rqt_graph" output="screen" launch-prefix="gnome-terminal --title 'RQT Graph' -x"/>
 
+  <!-- Launch RViz with the updated configuration file -->
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robotSelfie)/rviz/config.rviz"/>
 
   <!-- Add more nodes as needed -->

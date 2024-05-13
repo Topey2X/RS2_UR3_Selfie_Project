@@ -14,7 +14,7 @@ import numpy as np
 from scipy.interpolate import splprep, splev
 from typing import List, Tuple
 
-DEBUG = True
+DEBUG = False
 
 class Processor_Node:
   plots : List[Tuple[str, str, any]] = []
@@ -328,13 +328,13 @@ class Processor_Node:
     self.contour_publisher = rospy.Publisher('contours', ContourList, queue_size=10)
     # Initialize the ROS node
     rospy.init_node('image_processor')
-
+    rospy.sleep(7)
     # Create a subscriber to listen to the webcam images
     # Replace 'camera/image' with the actual topic your webcam publishes images to
     self.image_subscriber = rospy.Subscriber('/usb_cam/image_raw', Image, self.image_callback)
 
   ## Static image main
-  def debug_main(self,):
+  def debug_main(self, ):
     """
     Main for use with static image, saving only.
     """

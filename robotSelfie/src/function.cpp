@@ -1,11 +1,15 @@
 #include "function.h"
 
+
+//Calculate distance function using Phytagorean Theorem
 double calculateDistance(const Point& p1, const Point& p2) {
     double dx = p2.x - p1.x;
     double dy = p2.y - p1.y;
     return std::sqrt(dx * dx + dy * dy);
 }
 
+
+//Function to find the nearest line from the current point 
 int findNearestLine(const Point& currentPoint, const std::vector<std::vector<Point>>& lines, const std::vector<bool>& visitedLines) {
     int nearestLineIndex = -1;
     double minDistance = std::numeric_limits<double>::max();
@@ -33,6 +37,8 @@ int findNearestLine(const Point& currentPoint, const std::vector<std::vector<Poi
     return nearestLineIndex;
 }
 
+
+//Calculates the total distance travelled by all segments. Used for finding the best Point to start.
 double calculateTotalDistance(const std::vector<std::vector<Point>>& path) {
     double totalDistance = 0.0;
     for (const auto& segment : path) {
@@ -42,6 +48,7 @@ double calculateTotalDistance(const std::vector<std::vector<Point>>& path) {
     }
     return totalDistance;
 }
+
 
 std::vector<std::vector<Point>> optimizePathWithLiftoff(const std::vector<std::vector<Point>>& lines, bool printDistances) {
     ROS_INFO("Optimizing path");
@@ -77,8 +84,8 @@ std::vector<std::vector<Point>> optimizePathWithLiftoff(const std::vector<std::v
 
             double transitionDistance = calculateDistance(currentPoint, transitionPoint);
             std::vector<Point> transitionSegment;
-            transitionSegment.push_back({ currentPoint.x, currentPoint.y, 0.0001 });
-            transitionSegment.push_back({ transitionPoint.x, transitionPoint.y, 0.0001 });
+            transitionSegment.push_back({ currentPoint.x, currentPoint.y, 2 });
+            transitionSegment.push_back({ transitionPoint.x, transitionPoint.y, 2 });
             optimizedPath.push_back(transitionSegment);
 
             std::vector<Point> segment;
@@ -94,7 +101,7 @@ std::vector<std::vector<Point>> optimizePathWithLiftoff(const std::vector<std::v
 
             std::vector<Point> liftoffSegment;
             liftoffSegment.push_back({ segment.back().x, segment.back().y, 0 });
-            liftoffSegment.push_back({ segment.back().x, segment.back().y, 0.0001 });
+            liftoffSegment.push_back({ segment.back().x, segment.back().y, 2 });
             optimizedPath.push_back(liftoffSegment);
 
             currentPoint = segment.back();
@@ -121,6 +128,9 @@ std::vector<std::vector<Point>> optimizePathWithLiftoff(const std::vector<std::v
     
     return optimizedPaths[minDistanceIndex];
 }
+
+
+//Function to generate a csv so output can be seen.
 void writeToCsv(const std::vector<std::vector<Point>>& optimizedPath, const std::string& filename) {
     std::ofstream csvFile(filename);
     if (!csvFile.is_open()) {
