@@ -14,7 +14,7 @@ import numpy as np
 from scipy.interpolate import splprep, splev
 from typing import List, Tuple
 
-DEBUG = True
+DEBUG = False
 
 def process_image(img : MatLike) -> any:
   add_plot("Image", "Webcam Image", img)
@@ -316,13 +316,13 @@ def main():
     """
     Main for use in ROS environment
     """
-    pub = rospy.Publisher('contours', ContourList, queue_size=10)
-    # Initialize the ROS node
-    rospy.init_node('image_processor')
+    # Initialize the ROS node 
+    rospy.init_node('contour_publisher')
 
+    # Create a publisher for the contours
+    pub = rospy.Publisher('contours', ContourList, queue_size=10)
     # Create a subscriber to listen to the webcam images
-    # Replace 'camera/image' with the actual topic your webcam publishes images to
-    image_subscriber = rospy.Subscriber('camera/color/image_raw', Image, image_callback, callback_args=(image_subscriber, pub))
+    image_subscriber = rospy.Subscriber('camera/color/image_raw', Image, image_callback, callback_args=(image_subscriber, pub,))
 
     # Spin to keep the script from exiting until the node is shutdown
     rospy.spin()
@@ -339,7 +339,8 @@ def debug_main():
     show_to_screen()
 
 if __name__ == '__main__':
-    if DEBUG:
-        debug_main()
-    else:
-        main()
+    # if DEBUG:
+    #     debug_main()
+    # else:
+    #     main()
+    main()

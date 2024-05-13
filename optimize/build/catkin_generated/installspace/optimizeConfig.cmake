@@ -67,8 +67,8 @@ set(optimize_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(optimize_SOURCE_PREFIX /home/darren2004/catkin_ws/src/optimize)
-  set(optimize_DEVEL_PREFIX /home/darren2004/catkin_ws/src/optimize/build/devel)
+  set(optimize_SOURCE_PREFIX /home/darren2004/git/RS2_UR3_Selfie_Project/optimize)
+  set(optimize_DEVEL_PREFIX /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/devel)
   set(optimize_INSTALL_PREFIX "")
   set(optimize_PREFIX ${optimize_DEVEL_PREFIX})
 else()

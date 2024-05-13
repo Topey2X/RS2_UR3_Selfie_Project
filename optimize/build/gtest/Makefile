@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/darren2004/catkin_ws/src/optimize
+CMAKE_SOURCE_DIR = /home/darren2004/git/RS2_UR3_Selfie_Project/optimize
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/darren2004/catkin_ws/src/optimize/build
+CMAKE_BINARY_DIR = /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/darren2004/catkin_ws/src/optimize/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles /home/darren2004/catkin_ws/src/optimize/build/gtest/CMakeFiles/progress.marks
-	cd /home/darren2004/catkin_ws/src/optimize/build && $(MAKE) -f CMakeFiles/Makefile2 gtest/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	cd /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/gtest/CMakeFiles/progress.marks
+	cd /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build && $(MAKE) -f CMakeFiles/Makefile2 gtest/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/darren2004/catkin_ws/src/optimize/build && $(MAKE) -f CMakeFiles/Makefile2 gtest/clean
+	cd /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build && $(MAKE) -f CMakeFiles/Makefile2 gtest/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,17 +154,17 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/darren2004/catkin_ws/src/optimize/build && $(MAKE) -f CMakeFiles/Makefile2 gtest/preinstall
+	cd /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build && $(MAKE) -f CMakeFiles/Makefile2 gtest/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/darren2004/catkin_ws/src/optimize/build && $(MAKE) -f CMakeFiles/Makefile2 gtest/preinstall
+	cd /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build && $(MAKE) -f CMakeFiles/Makefile2 gtest/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/darren2004/catkin_ws/src/optimize/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Help Target
@@ -191,6 +191,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/darren2004/catkin_ws/src/optimize/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
