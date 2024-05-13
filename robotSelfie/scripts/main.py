@@ -2,10 +2,12 @@
 import rospy
 from geometry_msgs.msg import Point32, Point
 from robotSelfie.msg import ContourList, Contour
+from sensor_msgs.msg import Image
 import cv2
 # from img_processing import *
 # from ros_functions import *
 from cv2.typing import MatLike
+from cv_bridge import CvBridge
 import rembg
 from math import hypot, floor, degrees, atan2
 import numpy as np
@@ -282,11 +284,7 @@ def smooth_contours(contours, points_per_contour=None) -> list:
   
   return [smooth_contour(contour) for contour in contours]
 
-def publish_contours(contours):
-  rospy.init_node('contour_publisher')
-  print("contour_publisher node initialized")
-  pub = rospy.Publisher('contours', ContourList, queue_size=10)
-
+def publish_contours(pub, contours):
   # Build the message
   contour_list_msg = ContourList()
   for contour in contours:
@@ -297,22 +295,51 @@ def publish_contours(contours):
   # Publish the message
   # print("Contour list message:")
   # print(contour_list_msg)
+  pub.publish(contour_list_msg)
 
-  # Send message in a continous method
-  rate = rospy.Rate(5)  # Publish at 1 Hz
-  while not rospy.is_shutdown():
-      pub.publish(contour_list_msg)
-      rate.sleep()
+# Callback function when an image is received
+def image_callback(data, subscriber, publisher):
+    # Unsubscribe from the topic to ensure only one image is processed
+    subscriber.unregister()
 
-if __name__ == '__main__':
-  if DEBUG:
+    # Receive the image and convert to a cv2 image
+    raw_img = CvBridge().imgmsg_to_cv2(data, "bgr8")
+    
+    # Process the received image
+    processed_result = process_image(raw_img)
+    
+    # Publish the processed result
+    publish_contours(publisher, processed_result)
+
+
+def main():
+    """
+    Main for use in ROS environment
+    """
+    pub = rospy.Publisher('contours', ContourList, queue_size=10)
+    # Initialize the ROS node
+    rospy.init_node('image_processor')
+
+    # Create a subscriber to listen to the webcam images
+    # Replace 'camera/image' with the actual topic your webcam publishes images to
+    image_subscriber = rospy.Subscriber('camera/color/image_raw', Image, image_callback, callback_args=(image_subscriber, pub))
+
+    # Spin to keep the script from exiting until the node is shutdown
+    rospy.spin()
+
+## Static image main
+def debug_main():
+    """
+    Main for use with static image, saving only.
+    """
     # img = cv2.imread("OpenCVTest/assets/two_faces.jpg")
     img = cv2.imread("/home/darren2004/git/RS2_UR3_Selfie_Project/robotSelfie/scripts/OpenCVTest/assets/two_faces.jpg")
-  
-  try:
-      contours = process_image(img)
-      save_contours(contours)
-      publish_contours(contours)
-      show_to_screen()
-  except rospy.ROSInterruptException:
-      pass
+    contours = process_image(img)
+    save_contours(contours)
+    show_to_screen()
+
+if __name__ == '__main__':
+    if DEBUG:
+        debug_main()
+    else:
+        main()
