@@ -20,6 +20,7 @@ class Processor_Node:
   plots : List[Tuple[str, str, any]] = []
   image_subscriber = None
   contour_publisher = None
+  has_published = False
   
   def process_image(self, img : MatLike) -> any:
     self.add_plot("Image", "Webcam Image", img)
@@ -63,10 +64,7 @@ class Processor_Node:
     # Step 13: Publish ROS message
     return smoothed_contours
 
-  def add_plot(self, type : str, title : str, data : any) -> None:
-    if not DEBUG:
-      return
-    
+  def add_plot(self, type : str, title : str, data : any) -> None:    
     self.plots.append((type, title, data))
 
   def show_to_screen(self) -> None:  
@@ -110,7 +108,7 @@ class Processor_Node:
     return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
   def identify_faces(self, img_gray) -> MatLike:
-    faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.self, xml")
+    faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
     faces = faceCascade.detectMultiScale(
       img_gray,
       scaleFactor=1.3,
@@ -119,7 +117,7 @@ class Processor_Node:
     )
     
     if len(faces) == 0:
-      raise 'No valid faces found.'
+      raise Exception('No valid faces found.')
     
     ## Find biggest face
     biggest_face = [0, None]
@@ -302,15 +300,22 @@ class Processor_Node:
     self.contour_publisher.publish(contour_list_msg)
 
   # Callback function when an image is received
-  def image_callback(self, data, subscriber, publisher):
+  def image_callback(self, data):
     # Unsubscribe from the topic to ensure only one image is processed
-    self.image_subscriber.unregister()
+    # self.image_subscriber.unregister()
+    if self.has_published:
+      return
+    self.has_published = True
 
     # Receive the image and convert to a cv2 image
     raw_img = CvBridge().imgmsg_to_cv2(data, "bgr8")
     
     # Process the received image
-    processed_result = self.process_image(raw_img)
+    try:
+      processed_result = self.process_image(raw_img)
+    except:
+      self.show_to_screen()
+      return
     
     # Publish the processed result
     self.publish_contours(processed_result)
@@ -326,10 +331,10 @@ class Processor_Node:
 
     # Create a subscriber to listen to the webcam images
     # Replace 'camera/image' with the actual topic your webcam publishes images to
-    self.image_subscriber = rospy.Subscriber('camera/color/image_raw', Image, self.image_callback)
+    self.image_subscriber = rospy.Subscriber('/usb_cam/image_raw', Image, self.image_callback)
 
   ## Static image main
-  def debug_main(self, ):
+  def debug_main(self,):
     """
     Main for use with static image, saving only.
     """
@@ -339,14 +344,15 @@ class Processor_Node:
     self.save_contours(contours)
     self.show_to_screen()
     
-  def __init__(self, ):
+  def __init__(self, DEBUG):
+    self.DEBUG = DEBUG
     if DEBUG:
       self.debug_main()
     else:
       self.main()
 
 if __name__ == '__main__':
-  node = Processor_Node()
+  node = Processor_Node(DEBUG)
   
   if not DEBUG:
     rospy.spin()

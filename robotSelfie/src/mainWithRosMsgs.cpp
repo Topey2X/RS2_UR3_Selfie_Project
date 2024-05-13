@@ -7,11 +7,17 @@
 #include "robotSelfie/Contour.h"
 
 ros::Publisher path_pub;
+nav_msgs::Path optimized_path_msg;
+bool optimizedPathReceived = false;
 
-bool messageReceived = false;
+void publishOptimizedPath(const ros::TimerEvent&) {
+    if (optimizedPathReceived) {
+        path_pub.publish(optimized_path_msg);
+    }
+}
 
 void contoursCallback(const robotSelfie::ContourList::ConstPtr& msg) {
-    if (!messageReceived) {
+    if (!optimizedPathReceived) {
         ROS_INFO("Received contours message");
         ROS_INFO("Number of contours: %lu", msg->contours.size());
         std::vector<std::vector<Point>> lines;
@@ -29,20 +35,13 @@ void contoursCallback(const robotSelfie::ContourList::ConstPtr& msg) {
         std::vector<std::vector<Point>> optimized_path = optimizePathWithLiftoff(lines, true);
         ROS_INFO("Optimized path size: %lu", optimized_path.size());
 
-
-
-
         // Write the optimized path to a CSV file
         std::string csv_filename = ros::package::getPath("robotSelfie") + "/src/optimized_path.csv";
         writeToCsv(optimized_path, csv_filename);
 
-        sleep(10);
-
-
         // Convert the optimized path to nav_msgs::Path format
-        nav_msgs::Path path_msg;
-        path_msg.header.frame_id = "map";
-        path_msg.header.stamp = ros::Time::now();
+        optimized_path_msg.header.frame_id = "map";
+        optimized_path_msg.header.stamp = ros::Time::now();
 
         for (const auto& segment : optimized_path) {
             for (const auto& point : segment) {
@@ -53,14 +52,11 @@ void contoursCallback(const robotSelfie::ContourList::ConstPtr& msg) {
                 pose.pose.position.y = point.y;
                 pose.pose.position.z = point.z;
                 pose.pose.orientation.w = 1.0;
-                path_msg.poses.push_back(pose);
+                optimized_path_msg.poses.push_back(pose);
             }
         }
 
-        // Publish the optimized path
-        path_pub.publish(path_msg);
-
-        messageReceived = true;
+        optimizedPathReceived = true;
     }
 }
 
@@ -73,6 +69,8 @@ int main(int argc, char** argv) {
     ros::Subscriber contours_sub = nh.subscribe("contours", 1, contoursCallback);
     path_pub = nh.advertise<nav_msgs::Path>("optimized_path", 1);
 
+    // Create a timer to publish the optimized path at a fixed rate (e.g., 10 Hz)
+    ros::Timer timer = nh.createTimer(ros::Duration(0.1), publishOptimizedPath);
 
     // Spin and process callbacks
     ros::spin();
