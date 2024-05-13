@@ -44,10 +44,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/darren2004/catkin_ws/src/optimize
+CMAKE_SOURCE_DIR = /home/darren2004/git/RS2_UR3_Selfie_Project/optimize
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/darren2004/catkin_ws/src/optimize/build
+CMAKE_BINARY_DIR = /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -173,14 +173,14 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 CMakeFiles/optimization.dir/all: CMakeFiles/functions.dir/all
 	$(MAKE) -f CMakeFiles/optimization.dir/build.make CMakeFiles/optimization.dir/depend
 	$(MAKE) -f CMakeFiles/optimization.dir/build.make CMakeFiles/optimization.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num=11,12 "Built target optimization"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num=11,12 "Built target optimization"
 .PHONY : CMakeFiles/optimization.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/optimization.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/optimization.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/optimization.dir/rule
 
 # Convenience name for target.
@@ -200,14 +200,14 @@ CMakeFiles/optimization.dir/clean:
 CMakeFiles/optimize_genpy.dir/all: CMakeFiles/optimize_generate_messages_py.dir/all
 	$(MAKE) -f CMakeFiles/optimize_genpy.dir/build.make CMakeFiles/optimize_genpy.dir/depend
 	$(MAKE) -f CMakeFiles/optimize_genpy.dir/build.make CMakeFiles/optimize_genpy.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target optimize_genpy"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target optimize_genpy"
 .PHONY : CMakeFiles/optimize_genpy.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/optimize_genpy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/optimize_genpy.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/optimize_genpy.dir/rule
 
 # Convenience name for target.
@@ -228,14 +228,14 @@ CMakeFiles/optimize_generate_messages_py.dir/all: CMakeFiles/geometry_msgs_gener
 CMakeFiles/optimize_generate_messages_py.dir/all: CMakeFiles/_optimize_generate_messages_check_deps_Path.dir/all
 	$(MAKE) -f CMakeFiles/optimize_generate_messages_py.dir/build.make CMakeFiles/optimize_generate_messages_py.dir/depend
 	$(MAKE) -f CMakeFiles/optimize_generate_messages_py.dir/build.make CMakeFiles/optimize_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num=18,19 "Built target optimize_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num=18,19 "Built target optimize_generate_messages_py"
 .PHONY : CMakeFiles/optimize_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/optimize_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/optimize_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/optimize_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -256,14 +256,14 @@ CMakeFiles/optimize_generate_messages_nodejs.dir/all: CMakeFiles/geometry_msgs_g
 CMakeFiles/optimize_generate_messages_nodejs.dir/all: CMakeFiles/_optimize_generate_messages_check_deps_Path.dir/all
 	$(MAKE) -f CMakeFiles/optimize_generate_messages_nodejs.dir/build.make CMakeFiles/optimize_generate_messages_nodejs.dir/depend
 	$(MAKE) -f CMakeFiles/optimize_generate_messages_nodejs.dir/build.make CMakeFiles/optimize_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num=17 "Built target optimize_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num=17 "Built target optimize_generate_messages_nodejs"
 .PHONY : CMakeFiles/optimize_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/optimize_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/optimize_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/optimize_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
@@ -284,14 +284,14 @@ CMakeFiles/optimize_generate_messages_lisp.dir/all: CMakeFiles/geometry_msgs_gen
 CMakeFiles/optimize_generate_messages_lisp.dir/all: CMakeFiles/_optimize_generate_messages_check_deps_Path.dir/all
 	$(MAKE) -f CMakeFiles/optimize_generate_messages_lisp.dir/build.make CMakeFiles/optimize_generate_messages_lisp.dir/depend
 	$(MAKE) -f CMakeFiles/optimize_generate_messages_lisp.dir/build.make CMakeFiles/optimize_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num=16 "Built target optimize_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num=16 "Built target optimize_generate_messages_lisp"
 .PHONY : CMakeFiles/optimize_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/optimize_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/optimize_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/optimize_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -312,14 +312,14 @@ CMakeFiles/optimize_generate_messages_eus.dir/all: CMakeFiles/geometry_msgs_gene
 CMakeFiles/optimize_generate_messages_eus.dir/all: CMakeFiles/_optimize_generate_messages_check_deps_Path.dir/all
 	$(MAKE) -f CMakeFiles/optimize_generate_messages_eus.dir/build.make CMakeFiles/optimize_generate_messages_eus.dir/depend
 	$(MAKE) -f CMakeFiles/optimize_generate_messages_eus.dir/build.make CMakeFiles/optimize_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num=14,15 "Built target optimize_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num=14,15 "Built target optimize_generate_messages_eus"
 .PHONY : CMakeFiles/optimize_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/optimize_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/optimize_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/optimize_generate_messages_eus.dir/rule
 
 # Convenience name for target.
@@ -339,14 +339,14 @@ CMakeFiles/optimize_generate_messages_eus.dir/clean:
 CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all:
 	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/depend
 	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_eus"
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
@@ -366,14 +366,14 @@ CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean:
 CMakeFiles/functions.dir/all:
 	$(MAKE) -f CMakeFiles/functions.dir/build.make CMakeFiles/functions.dir/depend
 	$(MAKE) -f CMakeFiles/functions.dir/build.make CMakeFiles/functions.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num=1,2 "Built target functions"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num=1,2 "Built target functions"
 .PHONY : CMakeFiles/functions.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/functions.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/functions.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/functions.dir/rule
 
 # Convenience name for target.
@@ -393,14 +393,14 @@ CMakeFiles/functions.dir/clean:
 CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all:
 	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/depend
 	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_cpp"
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -420,14 +420,14 @@ CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean:
 CMakeFiles/roscpp_generate_messages_nodejs.dir/all:
 	$(MAKE) -f CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make CMakeFiles/roscpp_generate_messages_nodejs.dir/depend
 	$(MAKE) -f CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_nodejs"
 .PHONY : CMakeFiles/roscpp_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/roscpp_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/roscpp_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
@@ -447,14 +447,14 @@ CMakeFiles/roscpp_generate_messages_nodejs.dir/clean:
 CMakeFiles/std_msgs_generate_messages_eus.dir/all:
 	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_eus.dir/build.make CMakeFiles/std_msgs_generate_messages_eus.dir/depend
 	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_eus.dir/build.make CMakeFiles/std_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_eus"
 .PHONY : CMakeFiles/std_msgs_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/std_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/std_msgs_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/std_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
@@ -474,14 +474,14 @@ CMakeFiles/std_msgs_generate_messages_eus.dir/clean:
 CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all:
 	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend
 	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_lisp"
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -501,14 +501,14 @@ CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean:
 CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all:
 	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend
 	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_cpp"
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -528,14 +528,14 @@ CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
 CMakeFiles/roscpp_generate_messages_eus.dir/all:
 	$(MAKE) -f CMakeFiles/roscpp_generate_messages_eus.dir/build.make CMakeFiles/roscpp_generate_messages_eus.dir/depend
 	$(MAKE) -f CMakeFiles/roscpp_generate_messages_eus.dir/build.make CMakeFiles/roscpp_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_eus"
 .PHONY : CMakeFiles/roscpp_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/roscpp_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/roscpp_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/roscpp_generate_messages_eus.dir/rule
 
 # Convenience name for target.
@@ -555,14 +555,14 @@ CMakeFiles/roscpp_generate_messages_eus.dir/clean:
 CMakeFiles/optimize_genlisp.dir/all: CMakeFiles/optimize_generate_messages_lisp.dir/all
 	$(MAKE) -f CMakeFiles/optimize_genlisp.dir/build.make CMakeFiles/optimize_genlisp.dir/depend
 	$(MAKE) -f CMakeFiles/optimize_genlisp.dir/build.make CMakeFiles/optimize_genlisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target optimize_genlisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target optimize_genlisp"
 .PHONY : CMakeFiles/optimize_genlisp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/optimize_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/optimize_genlisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/optimize_genlisp.dir/rule
 
 # Convenience name for target.
@@ -582,14 +582,14 @@ CMakeFiles/optimize_genlisp.dir/clean:
 CMakeFiles/roscpp_generate_messages_cpp.dir/all:
 	$(MAKE) -f CMakeFiles/roscpp_generate_messages_cpp.dir/build.make CMakeFiles/roscpp_generate_messages_cpp.dir/depend
 	$(MAKE) -f CMakeFiles/roscpp_generate_messages_cpp.dir/build.make CMakeFiles/roscpp_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_cpp"
 .PHONY : CMakeFiles/roscpp_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/roscpp_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/roscpp_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -609,14 +609,14 @@ CMakeFiles/roscpp_generate_messages_cpp.dir/clean:
 CMakeFiles/geometry_msgs_generate_messages_py.dir/all:
 	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make CMakeFiles/geometry_msgs_generate_messages_py.dir/depend
 	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_py"
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/geometry_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/geometry_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -636,14 +636,14 @@ CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
 CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all:
 	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend
 	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_py"
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -663,14 +663,14 @@ CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean:
 CMakeFiles/doxygen.dir/all:
 	$(MAKE) -f CMakeFiles/doxygen.dir/build.make CMakeFiles/doxygen.dir/depend
 	$(MAKE) -f CMakeFiles/doxygen.dir/build.make CMakeFiles/doxygen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target doxygen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target doxygen"
 .PHONY : CMakeFiles/doxygen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/doxygen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/doxygen.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/doxygen.dir/rule
 
 # Convenience name for target.
@@ -690,14 +690,14 @@ CMakeFiles/doxygen.dir/clean:
 CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all:
 	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/depend
 	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_lisp"
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -717,14 +717,14 @@ CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean:
 CMakeFiles/download_extra_data.dir/all:
 	$(MAKE) -f CMakeFiles/download_extra_data.dir/build.make CMakeFiles/download_extra_data.dir/depend
 	$(MAKE) -f CMakeFiles/download_extra_data.dir/build.make CMakeFiles/download_extra_data.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target download_extra_data"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target download_extra_data"
 .PHONY : CMakeFiles/download_extra_data.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/download_extra_data.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/download_extra_data.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/download_extra_data.dir/rule
 
 # Convenience name for target.
@@ -744,14 +744,14 @@ CMakeFiles/download_extra_data.dir/clean:
 CMakeFiles/run_tests.dir/all:
 	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/depend
 	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target run_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target run_tests"
 .PHONY : CMakeFiles/run_tests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/run_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/run_tests.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/run_tests.dir/rule
 
 # Convenience name for target.
@@ -771,14 +771,14 @@ CMakeFiles/run_tests.dir/clean:
 CMakeFiles/std_msgs_generate_messages_lisp.dir/all:
 	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
 	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_lisp"
 .PHONY : CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/std_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -798,14 +798,14 @@ CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
 CMakeFiles/roscpp_generate_messages_lisp.dir/all:
 	$(MAKE) -f CMakeFiles/roscpp_generate_messages_lisp.dir/build.make CMakeFiles/roscpp_generate_messages_lisp.dir/depend
 	$(MAKE) -f CMakeFiles/roscpp_generate_messages_lisp.dir/build.make CMakeFiles/roscpp_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_lisp"
 .PHONY : CMakeFiles/roscpp_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/roscpp_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/roscpp_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/roscpp_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -825,14 +825,14 @@ CMakeFiles/roscpp_generate_messages_lisp.dir/clean:
 CMakeFiles/clean_test_results.dir/all:
 	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/depend
 	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target clean_test_results"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target clean_test_results"
 .PHONY : CMakeFiles/clean_test_results.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/clean_test_results.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/clean_test_results.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/clean_test_results.dir/rule
 
 # Convenience name for target.
@@ -852,14 +852,14 @@ CMakeFiles/clean_test_results.dir/clean:
 CMakeFiles/tests.dir/all:
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/depend
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target tests"
 .PHONY : CMakeFiles/tests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/tests.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/tests.dir/rule
 
 # Convenience name for target.
@@ -879,14 +879,14 @@ CMakeFiles/tests.dir/clean:
 CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all:
 	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/depend
 	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_nodejs"
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
@@ -906,14 +906,14 @@ CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean:
 CMakeFiles/std_msgs_generate_messages_cpp.dir/all:
 	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
 	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_cpp"
 .PHONY : CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/std_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -937,14 +937,14 @@ CMakeFiles/optimize_generate_messages.dir/all: CMakeFiles/optimize_generate_mess
 CMakeFiles/optimize_generate_messages.dir/all: CMakeFiles/optimize_generate_messages_cpp.dir/all
 	$(MAKE) -f CMakeFiles/optimize_generate_messages.dir/build.make CMakeFiles/optimize_generate_messages.dir/depend
 	$(MAKE) -f CMakeFiles/optimize_generate_messages.dir/build.make CMakeFiles/optimize_generate_messages.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target optimize_generate_messages"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target optimize_generate_messages"
 .PHONY : CMakeFiles/optimize_generate_messages.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/optimize_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/optimize_generate_messages.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/optimize_generate_messages.dir/rule
 
 # Convenience name for target.
@@ -964,14 +964,14 @@ CMakeFiles/optimize_generate_messages.dir/clean:
 CMakeFiles/std_msgs_generate_messages_py.dir/all:
 	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_py.dir/build.make CMakeFiles/std_msgs_generate_messages_py.dir/depend
 	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_py.dir/build.make CMakeFiles/std_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_py"
 .PHONY : CMakeFiles/std_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/std_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/std_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/std_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -991,14 +991,14 @@ CMakeFiles/std_msgs_generate_messages_py.dir/clean:
 CMakeFiles/optimize_gennodejs.dir/all: CMakeFiles/optimize_generate_messages_nodejs.dir/all
 	$(MAKE) -f CMakeFiles/optimize_gennodejs.dir/build.make CMakeFiles/optimize_gennodejs.dir/depend
 	$(MAKE) -f CMakeFiles/optimize_gennodejs.dir/build.make CMakeFiles/optimize_gennodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target optimize_gennodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target optimize_gennodejs"
 .PHONY : CMakeFiles/optimize_gennodejs.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/optimize_gennodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/optimize_gennodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/optimize_gennodejs.dir/rule
 
 # Convenience name for target.
@@ -1018,14 +1018,14 @@ CMakeFiles/optimize_gennodejs.dir/clean:
 CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all:
 	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/depend
 	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_nodejs"
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
@@ -1045,14 +1045,14 @@ CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean:
 CMakeFiles/optimize_gencpp.dir/all: CMakeFiles/optimize_generate_messages_cpp.dir/all
 	$(MAKE) -f CMakeFiles/optimize_gencpp.dir/build.make CMakeFiles/optimize_gencpp.dir/depend
 	$(MAKE) -f CMakeFiles/optimize_gencpp.dir/build.make CMakeFiles/optimize_gencpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target optimize_gencpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target optimize_gencpp"
 .PHONY : CMakeFiles/optimize_gencpp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/optimize_gencpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/optimize_gencpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/optimize_gencpp.dir/rule
 
 # Convenience name for target.
@@ -1072,14 +1072,14 @@ CMakeFiles/optimize_gencpp.dir/clean:
 CMakeFiles/std_msgs_generate_messages_nodejs.dir/all:
 	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/std_msgs_generate_messages_nodejs.dir/depend
 	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_nodejs"
 .PHONY : CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
@@ -1099,14 +1099,14 @@ CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean:
 CMakeFiles/geometry_msgs_generate_messages_eus.dir/all:
 	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make CMakeFiles/geometry_msgs_generate_messages_eus.dir/depend
 	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_eus"
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
@@ -1126,14 +1126,14 @@ CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean:
 CMakeFiles/roscpp_generate_messages_py.dir/all:
 	$(MAKE) -f CMakeFiles/roscpp_generate_messages_py.dir/build.make CMakeFiles/roscpp_generate_messages_py.dir/depend
 	$(MAKE) -f CMakeFiles/roscpp_generate_messages_py.dir/build.make CMakeFiles/roscpp_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_py"
 .PHONY : CMakeFiles/roscpp_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/roscpp_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/roscpp_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/roscpp_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -1153,14 +1153,14 @@ CMakeFiles/roscpp_generate_messages_py.dir/clean:
 CMakeFiles/_optimize_generate_messages_check_deps_Path.dir/all:
 	$(MAKE) -f CMakeFiles/_optimize_generate_messages_check_deps_Path.dir/build.make CMakeFiles/_optimize_generate_messages_check_deps_Path.dir/depend
 	$(MAKE) -f CMakeFiles/_optimize_generate_messages_check_deps_Path.dir/build.make CMakeFiles/_optimize_generate_messages_check_deps_Path.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target _optimize_generate_messages_check_deps_Path"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target _optimize_generate_messages_check_deps_Path"
 .PHONY : CMakeFiles/_optimize_generate_messages_check_deps_Path.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/_optimize_generate_messages_check_deps_Path.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/_optimize_generate_messages_check_deps_Path.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/_optimize_generate_messages_check_deps_Path.dir/rule
 
 # Convenience name for target.
@@ -1180,14 +1180,14 @@ CMakeFiles/_optimize_generate_messages_check_deps_Path.dir/clean:
 CMakeFiles/optimize_geneus.dir/all: CMakeFiles/optimize_generate_messages_eus.dir/all
 	$(MAKE) -f CMakeFiles/optimize_geneus.dir/build.make CMakeFiles/optimize_geneus.dir/depend
 	$(MAKE) -f CMakeFiles/optimize_geneus.dir/build.make CMakeFiles/optimize_geneus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num= "Built target optimize_geneus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num= "Built target optimize_geneus"
 .PHONY : CMakeFiles/optimize_geneus.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/optimize_geneus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/optimize_geneus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/optimize_geneus.dir/rule
 
 # Convenience name for target.
@@ -1208,14 +1208,14 @@ CMakeFiles/optimize_generate_messages_cpp.dir/all: CMakeFiles/geometry_msgs_gene
 CMakeFiles/optimize_generate_messages_cpp.dir/all: CMakeFiles/_optimize_generate_messages_check_deps_Path.dir/all
 	$(MAKE) -f CMakeFiles/optimize_generate_messages_cpp.dir/build.make CMakeFiles/optimize_generate_messages_cpp.dir/depend
 	$(MAKE) -f CMakeFiles/optimize_generate_messages_cpp.dir/build.make CMakeFiles/optimize_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num=13 "Built target optimize_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num=13 "Built target optimize_generate_messages_cpp"
 .PHONY : CMakeFiles/optimize_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/optimize_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/optimize_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : CMakeFiles/optimize_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -1236,14 +1236,14 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googlemock/CMakeFiles/gmoc
 gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num=5,6 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num=5,6 "Built target gmock_main"
 .PHONY : gtest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/googlemock/CMakeFiles/gmock_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/googlemock/CMakeFiles/gmock_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : gtest/googlemock/CMakeFiles/gmock_main.dir/rule
 
 # Convenience name for target.
@@ -1263,14 +1263,14 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/clean:
 gtest/googlemock/CMakeFiles/gmock.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num=3,4 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num=3,4 "Built target gmock"
 .PHONY : gtest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/googlemock/CMakeFiles/gmock.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/googlemock/CMakeFiles/gmock.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : gtest/googlemock/CMakeFiles/gmock.dir/rule
 
 # Convenience name for target.
@@ -1290,14 +1290,14 @@ gtest/googlemock/CMakeFiles/gmock.dir/clean:
 gtest/googletest/CMakeFiles/gtest_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num=9,10 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num=9,10 "Built target gtest_main"
 .PHONY : gtest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/googletest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/googletest/CMakeFiles/gtest_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : gtest/googletest/CMakeFiles/gtest_main.dir/rule
 
 # Convenience name for target.
@@ -1317,14 +1317,14 @@ gtest/googletest/CMakeFiles/gtest_main.dir/clean:
 gtest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num=7,8 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num=7,8 "Built target gtest"
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/googletest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/googletest/CMakeFiles/gtest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles 0
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/rule
 
 # Convenience name for target.

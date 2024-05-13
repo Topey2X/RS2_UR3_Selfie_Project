@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/darren2004/catkin_ws/src/optimize
+CMAKE_SOURCE_DIR = /home/darren2004/git/RS2_UR3_Selfie_Project/optimize
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/darren2004/catkin_ws/src/optimize/build
+CMAKE_BINARY_DIR = /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build
 
 # Utility rule file for optimize_generate_messages_eus.
 
@@ -60,12 +60,12 @@ CMakeFiles/optimize_generate_messages_eus: devel/share/roseus/ros/optimize/manif
 devel/share/roseus/ros/optimize/msg/Path.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 devel/share/roseus/ros/optimize/msg/Path.l: ../msg/Path.msg
 devel/share/roseus/ros/optimize/msg/Path.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from optimize/Path.msg"
-	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/darren2004/catkin_ws/src/optimize/msg/Path.msg -Ioptimize:/home/darren2004/catkin_ws/src/optimize/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p optimize -o /home/darren2004/catkin_ws/src/optimize/build/devel/share/roseus/ros/optimize/msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from optimize/Path.msg"
+	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/msg/Path.msg -Ioptimize:/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p optimize -o /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/devel/share/roseus/ros/optimize/msg
 
 devel/share/roseus/ros/optimize/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/darren2004/catkin_ws/src/optimize/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for optimize"
-	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/darren2004/catkin_ws/src/optimize/build/devel/share/roseus/ros/optimize optimize geometry_msgs
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for optimize"
+	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/devel/share/roseus/ros/optimize optimize geometry_msgs
 
 optimize_generate_messages_eus: CMakeFiles/optimize_generate_messages_eus
 optimize_generate_messages_eus: devel/share/roseus/ros/optimize/msg/Path.l
@@ -84,6 +84,6 @@ CMakeFiles/optimize_generate_messages_eus.dir/clean:
 .PHONY : CMakeFiles/optimize_generate_messages_eus.dir/clean
 
 CMakeFiles/optimize_generate_messages_eus.dir/depend:
-	cd /home/darren2004/catkin_ws/src/optimize/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/darren2004/catkin_ws/src/optimize /home/darren2004/catkin_ws/src/optimize /home/darren2004/catkin_ws/src/optimize/build /home/darren2004/catkin_ws/src/optimize/build /home/darren2004/catkin_ws/src/optimize/build/CMakeFiles/optimize_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/darren2004/git/RS2_UR3_Selfie_Project/optimize /home/darren2004/git/RS2_UR3_Selfie_Project/optimize /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/CMakeFiles/optimize_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/optimize_generate_messages_eus.dir/depend
 

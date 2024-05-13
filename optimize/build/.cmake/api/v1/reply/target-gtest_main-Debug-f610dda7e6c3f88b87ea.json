@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "gtest/lib/libgmockd.so"
+			"path" : "gtest/lib/libgtest_maind.so"
 		}
 	],
 	"backtrace" : 3,
@@ -20,7 +20,7 @@
 		"files" : 
 		[
 			"/usr/src/googletest/googletest/cmake/internal_utils.cmake",
-			"/usr/src/googletest/googlemock/CMakeLists.txt"
+			"/usr/src/googletest/googletest/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -30,7 +30,7 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 101,
+				"line" : 130,
 				"parent" : 0
 			},
 			{
@@ -48,7 +48,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 102,
+				"line" : 142,
 				"parent" : 0
 			},
 			{
@@ -60,7 +60,7 @@
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 79,
+				"line" : 118,
 				"parent" : 0
 			}
 		]
@@ -91,19 +91,11 @@
 					"define" : "GTEST_CREATE_SHARED_LIBRARY=1"
 				},
 				{
-					"define" : "gmock_EXPORTS"
+					"define" : "gtest_main_EXPORTS"
 				}
 			],
 			"includes" : 
 			[
-				{
-					"backtrace" : 6,
-					"path" : "/usr/src/googletest/googlemock/include"
-				},
-				{
-					"backtrace" : 6,
-					"path" : "/usr/src/googletest/googlemock"
-				},
 				{
 					"backtrace" : 6,
 					"isSystem" : true,
@@ -129,7 +121,7 @@
 			"id" : "gtest::@b738d542747fbb7ea6e3"
 		}
 	],
-	"id" : "gmock::@e3f94eedc5dc07131386",
+	"id" : "gtest_main::@b738d542747fbb7ea6e3",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -139,7 +131,7 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/darren2004/catkin_ws/src/optimize/build/gtest/lib",
+				"fragment" : "-Wl,-rpath,/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/gtest/lib",
 				"role" : "libraries"
 			},
 			{
@@ -154,12 +146,12 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "gmock",
-	"nameOnDisk" : "libgmockd.so",
+	"name" : "gtest_main",
+	"nameOnDisk" : "libgtest_maind.so",
 	"paths" : 
 	{
-		"build" : "gtest/googlemock",
-		"source" : "/usr/src/googletest/googlemock"
+		"build" : "gtest/googletest",
+		"source" : "/usr/src/googletest/googletest"
 	},
 	"sourceGroups" : 
 	[
@@ -176,7 +168,7 @@
 		{
 			"backtrace" : 3,
 			"compileGroupIndex" : 0,
-			"path" : "/usr/src/googletest/googlemock/src/gmock-all.cc",
+			"path" : "/usr/src/googletest/googletest/src/gtest_main.cc",
 			"sourceGroupIndex" : 0
 		}
 	],

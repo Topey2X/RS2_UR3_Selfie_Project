@@ -67,8 +67,8 @@ set(optimize_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(optimize_SOURCE_PREFIX /home/darren2004/catkin_ws/src/optimize)
-  set(optimize_DEVEL_PREFIX /home/darren2004/catkin_ws/src/optimize/build/devel)
+  set(optimize_SOURCE_PREFIX /home/darren2004/git/RS2_UR3_Selfie_Project/optimize)
+  set(optimize_DEVEL_PREFIX /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/devel)
   set(optimize_INSTALL_PREFIX "")
   set(optimize_PREFIX ${optimize_DEVEL_PREFIX})
 else()
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(optimize_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/darren2004/catkin_ws/src/optimize/build/devel/include " STREQUAL " ")
+if(NOT "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/devel/include " STREQUAL " ")
   set(optimize_INCLUDE_DIRS "")
-  set(_include_dirs "/home/darren2004/catkin_ws/src/optimize/build/devel/include")
+  set(_include_dirs "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/devel/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/darren2004/catkin_ws/src/optimize/build/devel/include " STREQUAL "
         message(FATAL_ERROR "Project 'optimize' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'optimize' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/darren2004/catkin_ws/src/optimize/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'optimize' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/${idir}'.  ${_report}")
     endif()
     _list_append_unique(optimize_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/darren2004/catkin_ws/src/optimize/build/devel/lib;/home/darren2004/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/devel/lib;/home/darren2004/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

@@ -195,7 +195,7 @@
 			[
 				{
 					"backtrace" : 22,
-					"path" : "/home/darren2004/catkin_ws/src/optimize/build/devel/include"
+					"path" : "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/devel/include"
 				},
 				{
 					"backtrace" : 23,
@@ -234,7 +234,7 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/darren2004/catkin_ws/src/optimize/build/devel/lib:/opt/ros/noetic/lib",
+				"fragment" : "-Wl,-rpath,/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/devel/lib:/opt/ros/noetic/lib",
 				"role" : "libraries"
 			},
 			{

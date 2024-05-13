@@ -47,7 +47,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/darren2004/catkin_ws/src/optimize/build/catkin_generated/env_cached.sh"
+			"value" : "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/catkin_generated/env_cached.sh"
 		},
 		{
 			"name" : "CATKIN_PACKAGE_PREFIX",
@@ -151,7 +151,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/darren2004/catkin_ws/src/optimize/build"
+			"value" : "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -1699,7 +1699,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/darren2004/catkin_ws/src/optimize/build/gmock"
+			"value" : "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/gmock"
 		},
 		{
 			"name" : "GMOCK_FROM_SOURCE_MAIN_LIBRARIES",
@@ -1835,7 +1835,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/darren2004/catkin_ws/src/optimize/build/gtest"
+			"value" : "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/gtest"
 		},
 		{
 			"name" : "GTEST_FROM_SOURCE_MAIN_LIBRARIES",
@@ -2279,7 +2279,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/darren2004/catkin_ws/src/optimize/build/gtest/googlemock"
+			"value" : "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/gtest/googlemock"
 		},
 		{
 			"name" : "gmock_LIB_DEPENDS",
@@ -2343,7 +2343,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/darren2004/catkin_ws/src/optimize/build/gtest"
+			"value" : "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/gtest"
 		},
 		{
 			"name" : "googletest-distribution_SOURCE_DIR",
@@ -2367,7 +2367,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/darren2004/catkin_ws/src/optimize/build/gtest/googletest"
+			"value" : "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/gtest/googletest"
 		},
 		{
 			"name" : "gtest_SOURCE_DIR",
@@ -2519,7 +2519,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/darren2004/catkin_ws/src/optimize/build"
+			"value" : "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build"
 		},
 		{
 			"name" : "optimize_SOURCE_DIR",
@@ -2531,7 +2531,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/darren2004/catkin_ws/src/optimize"
+			"value" : "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize"
 		},
 		{
 			"name" : "rosconsole_DIR",

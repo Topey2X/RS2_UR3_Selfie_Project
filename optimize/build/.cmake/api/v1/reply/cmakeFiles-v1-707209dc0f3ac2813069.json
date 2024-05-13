@@ -923,8 +923,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/darren2004/catkin_ws/src/optimize/build",
-		"source" : "/home/darren2004/catkin_ws/src/optimize"
+		"build" : "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build",
+		"source" : "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize"
 	},
 	"version" : 
 	{

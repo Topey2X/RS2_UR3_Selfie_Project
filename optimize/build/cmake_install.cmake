@@ -1,4 +1,4 @@
-# Install script for directory: /home/darren2004/catkin_ws/src/optimize
+# Install script for directory: /home/darren2004/git/RS2_UR3_Selfie_Project/optimize
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -56,7 +56,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/darren2004/catkin_ws/src/optimize/build/catkin_generated/installspace/_setup_util.py")
+file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/catkin_generated/installspace/_setup_util.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -68,7 +68,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/darren2004/catkin_ws/src/optimize/build/catkin_generated/installspace/env.sh")
+file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/catkin_generated/installspace/env.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -81,8 +81,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
 file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES
-    "/home/darren2004/catkin_ws/src/optimize/build/catkin_generated/installspace/setup.bash"
-    "/home/darren2004/catkin_ws/src/optimize/build/catkin_generated/installspace/local_setup.bash"
+    "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/catkin_generated/installspace/setup.bash"
+    "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
@@ -96,8 +96,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
 file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES
-    "/home/darren2004/catkin_ws/src/optimize/build/catkin_generated/installspace/setup.sh"
-    "/home/darren2004/catkin_ws/src/optimize/build/catkin_generated/installspace/local_setup.sh"
+    "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/catkin_generated/installspace/setup.sh"
+    "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
@@ -111,8 +111,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
 file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES
-    "/home/darren2004/catkin_ws/src/optimize/build/catkin_generated/installspace/setup.zsh"
-    "/home/darren2004/catkin_ws/src/optimize/build/catkin_generated/installspace/local_setup.zsh"
+    "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/catkin_generated/installspace/setup.zsh"
+    "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
@@ -125,63 +125,63 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES "/home/darren2004/catkin_ws/src/optimize/build/catkin_generated/installspace/.rosinstall")
+file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/catkin_generated/installspace/.rosinstall")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/optimize/msg" TYPE FILE FILES "/home/darren2004/catkin_ws/src/optimize/msg/Path.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/optimize/msg" TYPE FILE FILES "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/msg/Path.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/optimize/cmake" TYPE FILE FILES "/home/darren2004/catkin_ws/src/optimize/build/catkin_generated/installspace/optimize-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/optimize/cmake" TYPE FILE FILES "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/catkin_generated/installspace/optimize-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/darren2004/catkin_ws/src/optimize/build/devel/include/optimize")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/devel/include/optimize")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/darren2004/catkin_ws/src/optimize/build/devel/share/roseus/ros/optimize")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/devel/share/roseus/ros/optimize")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/darren2004/catkin_ws/src/optimize/build/devel/share/common-lisp/ros/optimize")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/devel/share/common-lisp/ros/optimize")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/darren2004/catkin_ws/src/optimize/build/devel/share/gennodejs/ros/optimize")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/devel/share/gennodejs/ros/optimize")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/darren2004/catkin_ws/src/optimize/build/devel/lib/python3/dist-packages/optimize")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/devel/lib/python3/dist-packages/optimize")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/darren2004/catkin_ws/src/optimize/build/devel/lib/python3/dist-packages/optimize")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/devel/lib/python3/dist-packages/optimize")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/darren2004/catkin_ws/src/optimize/build/catkin_generated/installspace/optimize.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/catkin_generated/installspace/optimize.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/optimize/cmake" TYPE FILE FILES "/home/darren2004/catkin_ws/src/optimize/build/catkin_generated/installspace/optimize-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/optimize/cmake" TYPE FILE FILES "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/catkin_generated/installspace/optimize-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/optimize/cmake" TYPE FILE FILES
-    "/home/darren2004/catkin_ws/src/optimize/build/catkin_generated/installspace/optimizeConfig.cmake"
-    "/home/darren2004/catkin_ws/src/optimize/build/catkin_generated/installspace/optimizeConfig-version.cmake"
+    "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/catkin_generated/installspace/optimizeConfig.cmake"
+    "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/catkin_generated/installspace/optimizeConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/optimize" TYPE FILE FILES "/home/darren2004/catkin_ws/src/optimize/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/optimize" TYPE FILE FILES "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/darren2004/catkin_ws/src/optimize/build/gtest/cmake_install.cmake")
+  include("/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/gtest/cmake_install.cmake")
 
 endif()
 
@@ -193,5 +193,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/darren2004/catkin_ws/src/optimize/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/darren2004/git/RS2_UR3_Selfie_Project/optimize/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
