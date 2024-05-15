@@ -4,6 +4,10 @@ from geometry_msgs.msg import Point32, Point
 from robotSelfie.msg import ContourList, Contour
 from sensor_msgs.msg import Image
 import cv2
+#GUI
+import tkinter as tk
+from tkinter import messagebox
+
 # from img_processing import *
 # from ros_functions import *
 from cv2.typing import MatLike
@@ -22,6 +26,73 @@ class Processor_Node:
   contour_publisher = None
   has_published = False
   
+  #GUI
+  def create_gui(self):
+    self.root = tk.Tk()
+    self.root.title("RobotSelfie")
+
+    capture_image = tk.PhotoImage(file="/home/darren2004/git/RS2_UR3_Selfie_Project/robotSelfie/scripts/icons/capture.png")
+    use_image = tk.PhotoImage(file="/home/darren2004/git/RS2_UR3_Selfie_Project/robotSelfie/scripts/icons/tick.png")
+    retake_image = tk.PhotoImage(file="/home/darren2004/git/RS2_UR3_Selfie_Project/robotSelfie/scripts/icons/retake.png")
+
+    self.capture_button = tk.Button(self.root, compound=tk.BOTTOM, image=capture_image, text="Capture",
+                                    command=self.capture_image, bg="white", fg="black", font=("Helvetica", 14, "bold"),
+                                    padx=20, pady=10, relief="raised")
+    self.capture_button.pack(pady=10)
+
+    self.use_button = tk.Button(self.root, compound=tk.BOTTOM, image=use_image, text="Use Image",
+                                command=self.use_image, state=tk.DISABLED, bg="gray", fg="white",
+                                font=("Helvetica", 12), padx=15, pady=8)
+    self.use_button.pack(pady=5)
+
+    self.retake_button = tk.Button(self.root, compound=tk.BOTTOM, image=retake_image, text="Retake",
+                                   command=self.retake_image, state=tk.DISABLED, bg="gray", fg="white",
+                                   font=("Helvetica", 12), padx=15, pady=8)
+    self.retake_button.pack(pady=5)
+
+    self.root.mainloop()
+        
+  #Capture Image
+  def capture_image(self):
+        if not self.has_published:
+            self.capture_button.config(state=tk.DISABLED)
+            self.use_button.config(state=tk.NORMAL)
+            self.retake_button.config(state=tk.NORMAL)
+            self.has_published = True
+            messagebox.showinfo("Capture", "Image captured. Click 'Use Image' to process or 'Retake' to capture again.")
+        else:
+            messagebox.showinfo("Capture", "Image already captured.")
+
+  #Use image if it is good
+  def use_image(self):
+        self.use_button.config(state=tk.DISABLED)
+        self.retake_button.config(state=tk.DISABLED)
+        messagebox.showinfo("Process", "Using the captured image for processing.")
+        self.process_captured_image()
+
+  #Retake Image if they don't like it
+  def retake_image(self):
+        self.has_published = False
+        self.capture_button.config(state=tk.NORMAL)
+        self.use_button.config(state=tk.DISABLED)
+        self.retake_button.config(state=tk.DISABLED)
+        messagebox.showinfo("Retake", "Retaking the image. Click 'Capture' to capture a new image.")
+
+  #Processed the image after the user agrees with the result
+  def process_captured_image(self):
+        if self.captured_image is not None:
+            # Process the captured image
+            try:
+                processed_result = self.process_image(self.captured_image)
+            except:
+                self.show_to_screen()
+                return
+
+            # Publish the processed result
+            self.publish_contours(processed_result)
+        else:
+            messagebox.showinfo("Error", "No image captured.")
+            
   def process_image(self, img : MatLike) -> any:
     self.add_plot("Image", "Webcam Image", img)
     
@@ -301,24 +372,9 @@ class Processor_Node:
 
   # Callback function when an image is received
   def image_callback(self, data):
-    # Unsubscribe from the topic to ensure only one image is processed
-    # self.image_subscriber.unregister()
-    if self.has_published:
-      return
-    self.has_published = True
-
-    # Receive the image and convert to a cv2 image
-    raw_img = CvBridge().imgmsg_to_cv2(data, "bgr8")
-    
-    # Process the received image
-    try:
-      processed_result = self.process_image(raw_img)
-    except:
-      self.show_to_screen()
-      return
-    
-    # Publish the processed result
-    self.publish_contours(processed_result)
+        if self.has_published and self.captured_image is None:
+            # Receive the image and convert to a cv2 image
+            self.captured_image = CvBridge().imgmsg_to_cv2(data, "bgr8")
 
 
   def main(self):
@@ -328,10 +384,16 @@ class Processor_Node:
     self.contour_publisher = rospy.Publisher('contours', ContourList, queue_size=10)
     # Initialize the ROS node
     rospy.init_node('image_processor')
-    rospy.sleep(7)
+    rospy.sleep(1)
     # Create a subscriber to listen to the webcam images
     # Replace 'camera/image' with the actual topic your webcam publishes images to
     self.image_subscriber = rospy.Subscriber('/usb_cam/image_raw', Image, self.image_callback)
+
+    # Initialize the captured_image attribute
+    self.captured_image = None
+
+    # Create the GUI
+    self.create_gui()
 
   ## Static image main
   def debug_main(self, ):
@@ -339,7 +401,7 @@ class Processor_Node:
     Main for use with static image, saving only.
     """
     # img = cv2.imread("OpenCVTest/assets/two_faces.jpg")
-    img = cv2.imread("/home/darren2004/git/RS2_UR3_Selfie_Project/robotSelfie/scripts/OpenCVTest/assets/two_faces.jpg")
+    img = cv2.imread("/home/darren2004/git/RS2_UR3_Selfie_Project/robotSelfie/scripts/OpenCVTest/assets/easy.jpg")
     contours = self.process_image(img)
     self.save_contours(contours)
     self.show_to_screen()

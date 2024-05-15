@@ -36,18 +36,6 @@ Visualization Manager:
       Topic: /optimized_path
       Unreliable: false
       Value: true
-    - Class: rviz/Image
-      Enabled: true
-      Image Topic: /usb_cam/image_raw
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: RawImage
-      Normalize Range: true
-      Queue Size: 2
-      Transport Hint: raw
-      Unreliable: false
-      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -72,25 +60,22 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 10.0
-    Enable Stereo Rendering:
-      Stereo Eye Separation: 0.05999999865889549
-      Stereo Focal Distance: 1
-      Swap Stereo Eyes: false
-      Value: false
-    Field of View: 0.7853981852531433
-    Focal Point:
-      X: 0.0
-      Y: 0.0
-      Z: 0.0
-    Focal Shape Fixed Size: true
-    Focal Shape Size: 0.05000000074505806
-    Invert Z Axis: false
-    Name: Current View
-    Near Clip Distance: 0.009999999776482582
-    Pitch: 0.785398006439209
-    Target Frame: <Fixed Frame>
-    Yaw: 0.785398006439209
+      Distance: 10
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.06
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Name: Current View
+      Near Clip Distance: 0.01
+      Pitch: 0.785398
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 0.785398
     Saved: ~
 Window Geometry:
   Displays:

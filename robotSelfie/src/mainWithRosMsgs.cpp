@@ -70,7 +70,7 @@ int main(int argc, char** argv) {
     path_pub = nh.advertise<nav_msgs::Path>("optimized_path", 1);
 
     // Create a timer to publish the optimized path at a fixed rate (e.g., 10 Hz)
-    ros::Timer timer = nh.createTimer(ros::Duration(0.1), publishOptimizedPath);
+    ros::Timer timer = nh.createTimer(ros::Duration(5), publishOptimizedPath);
 
     // Spin and process callbacks
     ros::spin();

@@ -84,8 +84,8 @@ std::vector<std::vector<Point>> optimizePathWithLiftoff(const std::vector<std::v
 
             double transitionDistance = calculateDistance(currentPoint, transitionPoint);
             std::vector<Point> transitionSegment;
-            transitionSegment.push_back({ currentPoint.x, currentPoint.y, 2 });
-            transitionSegment.push_back({ transitionPoint.x, transitionPoint.y, 2 });
+            transitionSegment.push_back({ currentPoint.x, currentPoint.y, 1 });
+            transitionSegment.push_back({ transitionPoint.x, transitionPoint.y, 1 });
             optimizedPath.push_back(transitionSegment);
 
             std::vector<Point> segment;
@@ -101,7 +101,7 @@ std::vector<std::vector<Point>> optimizePathWithLiftoff(const std::vector<std::v
 
             std::vector<Point> liftoffSegment;
             liftoffSegment.push_back({ segment.back().x, segment.back().y, 0 });
-            liftoffSegment.push_back({ segment.back().x, segment.back().y, 2 });
+            liftoffSegment.push_back({ segment.back().x, segment.back().y, 1 });
             optimizedPath.push_back(liftoffSegment);
 
             currentPoint = segment.back();
