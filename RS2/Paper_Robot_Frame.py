@@ -9,7 +9,7 @@ from sensor_msgs.msg import Image, CameraInfo
 from geometry_msgs.msg import Pose, PoseStamped
 import csv
 
-# Vị trí của camera so với robot (thay thế bằng giá trị thực tế - đơn vị: mm) 
+# Position of the camera relative to the robot - EOF (replace with actual value - unit: mm)
 camera_to_robot = np.identity(4) @ np.array((32.5, 107, 25, 1))   
 
 def get_paper_to_base_transform(camera_to_base, paper_to_camera):
@@ -28,83 +28,86 @@ def get_paper_to_base_transform(camera_to_base, paper_to_camera):
 
 class ArUcoMarker():
     
-    _MARKER_LENGTH = 0.029  # Chiều dài cạnh của marker ArUco (mét)
-    _OFFSET = 0.05  # Khoảng cách từ marker đến tâm khu vực (mét)
-
+    _MARKER_LENGTH = 0.029  # Length of the ArUco marker's side (meters)
+    _OFFSET = 0.05  # Distance from the marker to the center of the area (meters)
+    
     def __init__(self, camera_pose=None) -> None:
-        rospy.init_node('camera_display', anonymous=True)  # Khởi tạo node ROS
-        self.bridge = CvBridge()  # Khởi tạo CvBridge để chuyển đổi ảnh ROS sang OpenCV
+        rospy.init_node('camera_display', anonymous=True)  # Initialize ROS node
+        self.bridge = CvBridge()  # Initialize CvBridge to convert ROS images to OpenCV
+
 
         # Subscribers
         self.rgb_subscriber = rospy.Subscriber(
-            "/camera/color/image_raw",  # Topic chứa ảnh màu từ camera
+            "/camera/color/image_raw",  # Topic containing color images from the camera
             Image,
-            self.img_callback)  # Hàm xử lý khi nhận được ảnh mới
+            self.img_callback)  # Callback function when a new image is received
 
-        # Lấy thông tin camera
+
+        # Get camera info
         self.camera_info = rospy.wait_for_message(
-            "/camera/color/camera_info",  # Topic chứa thông tin camera
+            "/camera/color/camera_info",  # Topic containing camera info
             CameraInfo)
-        self._dist_coeffs = np.array(self.camera_info.D)  # Hệ số méo của camera
-        self._camera_matrix = np.array(self.camera_info.K).reshape(3, 3)  # Ma trận nội tham số camera
-
-        # Khởi tạo tf broadcaster để phát thông tin biến đổi tọa độ
+        self._dist_coeffs = np.array(self.camera_info.D)  # Camera distortion coefficients
+        self._camera_matrix = np.array(self.camera_info.K).reshape(3, 3)  # Camera intrinsic matrix
+        
+        # Initialize tf broadcaster to broadcast coordinate transformations
         self.tf_broadcaster = tf.TransformBroadcaster()
 
-        # Khởi tạo bộ phát hiện ArUco marker
-        self.aruco_dict = aruco.getPredefinedDictionary(aruco.DICT_4X4_250)  # Sử dụng dictionary 4x4_250
-        self.parameters = aruco.DetectorParameters()  # Tham số phát hiện marker
+        # Initialize ArUco marker detector
+        self.aruco_dict = aruco.getPredefinedDictionary(aruco.DICT_4X4_250)  # Use dictionary 4x4_250
+        self.parameters = aruco.DetectorParameters()  # Marker detection parameters
 
-        # Tạo buffer point để tính toán tư thế
-        self.rvec = np.zeros((3, 1))  # Vector xoay
-        self.tvec = np.zeros((3, 1))  # Vector tịnh tiến
+         # Create pose buffer for pose calculation
+        self.rvec = np.zeros((3, 1))  # Rotation vector
+        self.tvec = np.zeros((3, 1))  # Translation vector
         self.pose_buffer = np.array([
-            [-self._MARKER_LENGTH / 2, self._MARKER_LENGTH / 2, 0],  # Góc dưới bên trái
-            [self._MARKER_LENGTH / 2, self._MARKER_LENGTH / 2, 0],  # Góc dưới bên phải 
-            [self._MARKER_LENGTH / 2, -self._MARKER_LENGTH / 2, 0],  # Góc trên bên phải
-            [-self._MARKER_LENGTH / 2, -self._MARKER_LENGTH / 2, 0]],  # Góc trên bên trái
-            dtype=np.float64)  # Tọa độ 4 góc của khu vực đánh dấu
+            [-self._MARKER_LENGTH / 2, self._MARKER_LENGTH / 2, 0],  # Bottom-left corner
+            [self._MARKER_LENGTH / 2, self._MARKER_LENGTH / 2, 0],   # Bottom-right corner
+            [self._MARKER_LENGTH / 2, -self._MARKER_LENGTH / 2, 0],  # Top-right corner
+            [-self._MARKER_LENGTH / 2, -self._MARKER_LENGTH / 2, 0]],  # Top-left corner
+            dtype=np.float64)  # Coordinates of the 4 corners of the marked area
 
 
     def clean_shutdown():
         """
-        Hàm dọn dẹp khi node tắt.
+        Cleanup function when the node shuts down.
         """
         print("Shutting down camera_display node.")
         cv2.destroyAllWindows()
 
     def img_callback(self, data):
         """
-        Hàm xử lý khi nhận được ảnh mới từ camera.
+        Callback function when a new image is received from the camera.
         """
+
         try:
             
-            cv_image = self.bridge.imgmsg_to_cv2(data, "bgr8")  # Chuyển đổi ảnh ROS sang OpenCV
+            cv_image = self.bridge.imgmsg_to_cv2(data, "bgr8") # Convert ROS image to OpenCV
 
-            # Phát hiện ArUco marker trong ảnh
+            # Detect ArUco markers in the image
             corners, ids, _ = cv2.aruco.detectMarkers(
                 cv_image, self.aruco_dict, parameters=self.parameters)
 
-            # Kiểm tra nếu phát hiện đủ 4 marker
+            # Check if 4 markers are detected
             if ids is not None and len(ids) == 4:
-                # Vẽ marker lên ảnh
+                # Draw markers on the image
                 cv2.aruco.drawDetectedMarkers(cv_image, corners, ids)
 
-                # Tính toán tâm của khu vực được đánh dấu bởi 4 marker
+                # Calculate the center of the area marked by the 4 markers
                 # center = np.mean([np.mean(corner, axis=0) for corner in corners], axis=0)
                 center = corners[np.where(ids == 4)[0][0]]
                 paper_center = np.array([np.mean(center[:, 0]), np.mean(center[:, 1])])  # [u, v]
-                rospy.loginfo(paper_center)  # In ra tọa độ 2D của tâm 
+                rospy.loginfo(paper_center)  # Print 2D coordinates of the center 
                 _, self.rvec, self.tvec = cv2.solvePnP(self.pose_buffer, center, self._camera_matrix, self._dist_coeffs, self.rvec, self.tvec)
                 cv2.drawFrameAxes(cv_image, self._camera_matrix, self._dist_coeffs, self.rvec, self.tvec, 0.1)
 
-                # Độ sâu thực tế từ camera đến tờ giấy (đơn vị: mm)
+                # Actual depth from camera to the paper (unit: mm)
                 depth_mm = 0.5 * 1000  
 
-                # Vị trí của camera so với robot (thay thế bằng giá trị thực tế - đơn vị: mm) 
+                # Position of the camera relative to the robot (replace with actual value - unit: mm) 
                 camera_pose = (32.5, 107, 25)
 
-                # Tính toán vị trí 3D của tờ giấy so với robot  
+                # Calculate the 3D position of the paper relative to the robot  
                 paper_pose_wrt_robot = get_paper_pose_wrt_robot(
                     paper_center[0], paper_center[1], depth_mm, camera_pose, 
                     self._camera_matrix, self._dist_coeffs
@@ -116,36 +119,35 @@ class ArUcoMarker():
             rospy.logerr(err)
             return
 
-        # Hiển thị ảnh (debug)
+        # Display the image (debug)
         cv2.imshow('Test_head_Cam', cv_image)
         cv2.waitKey(3)
 
 
 def img_to_cam_3d(x, y, depth, camera_matrix, dist_coeffs):
     """
-    Chuyển đổi điểm 2D trên ảnh sang điểm 3D trong hệ quy chiếu của camera.
+    Converts a 2D point on the image to a 3D point in the camera frame.
 
     Args:
-        x (float): Tọa độ x của điểm trên ảnh.
-        y (float): Tọa độ y của điểm trên ảnh.
-        depth (float): Giá trị độ sâu tại điểm (x, y) (mm).
-        camera_matrix (numpy.ndarray): Ma trận nội tham số của camera (3x3).
-        dist_coeffs (numpy.ndarray): Hệ số méo của camera.
+        x (float): x coordinate of the point on the image.
+        y (float): y coordinate of the point on the image.
+        depth (float): Depth value at the point (x, y) (mm).
+        camera_matrix (numpy.ndarray): Camera intrinsic matrix (3x3).
+        dist_coeffs (numpy.ndarray): Camera distortion coefficients.
 
     Returns:
-        numpy.ndarray: Điểm 3D trong hệ quy chiếu của camera (x, y, z) (mm).
+        numpy.ndarray: 3D point in the camera frame (x, y, z) (mm).
     """
-    # 1. Khử méo điểm ảnh
+    # 1. Undistort the image point
     undistorted_point = cv2.undistortPoints(np.array([[x, y]]), camera_matrix, dist_coeffs)[0, 0]
 
-    # 2. Áp dụng mô hình camera lỗ kim
-    fx, fy = camera_matrix[0, 0], camera_matrix[1, 1]  # Độ dài tiêu cự
-    cx, cy = camera_matrix[0, 2], camera_matrix[1, 2]  # Điểm chính
-
+    # 2. Apply the pinhole camera model
+    fx, fy = camera_matrix[0, 0], camera_matrix[1, 1]  # Focal lengths
+    cx, cy = camera_matrix[0, 2], camera_matrix[1, 2]  # Principal point
     x_normalized = (undistorted_point[0] - cx) / fx
     y_normalized = (undistorted_point[1] - cy) / fy
 
-    # 3. Tính toán tọa độ 3D
+     # 3. Calculate the 3D coordinates
     x_3d = x_normalized * depth
     y_3d = y_normalized * depth
     z_3d = depth
@@ -155,23 +157,23 @@ def img_to_cam_3d(x, y, depth, camera_matrix, dist_coeffs):
 
 def get_paper_pose_wrt_robot(u, v, depth, camera_pose, camera_matrix, dist_coeffs):
     """
-    Tính toán vị trí 3D của tờ giấy so với robot.
+    Calculates the 3D position of the paper relative to the robot.
 
     Args:
-        u, v: Tọa độ 2D của tâm tờ giấy trên ảnh.
-        depth: Giá trị độ sâu tại điểm (u, v) (mm).
-        camera_pose: Vị trí 3D của camera so với robot (x, y, z) (mm).
-        camera_matrix: Ma trận nội tham số của camera.
-        dist_coeffs: Hệ số méo của camera.
+        u, v: 2D coordinates of the center of the paper on the image.
+        depth: Depth value at the point (u, v) (mm).
+        camera_pose: 3D position of the camera relative to the robot (x, y, z) (mm).
+        camera_matrix: Camera intrinsic matrix.
+        dist_coeffs: Camera distortion coefficients.
 
     Returns:
-        Mảng NumPy: Vị trí 3D của tờ giấy so với robot (x, y, z) (mm).
+        numpy.ndarray: 3D position of the paper relative to the robot (x, y, z) (mm).
     """
-    # Chuyển đổi tọa độ 2D và độ sâu thành tọa độ 3D trong hệ quy chiếu camera
+    # Convert 2D coordinates and depth to 3D coordinates in the camera frame
     point_3d_camera = img_to_cam_3d(u, v, depth, camera_matrix, dist_coeffs)
 
-    # Chuyển đổi tọa độ 3D từ hệ quy chiếu camera sang hệ quy chiếu robot
-    # (Giả sử camera_pose là vector tịnh tiến, cần bổ sung ma trận xoay nếu cần)
+    # Convert 3D coordinates from the camera frame to the robot frame
+    # (Assuming camera_pose is a translation vector, add a rotation matrix if needed)
     point_3d_robot = point_3d_camera + np.array(camera_pose)
 
     return point_3d_robot

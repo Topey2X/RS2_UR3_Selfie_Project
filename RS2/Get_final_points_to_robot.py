@@ -24,6 +24,7 @@ def apply_transform_csv(csv_file, transform_matrix):
     # Read the CSV file
     with open(csv_file, 'r') as f:
         reader = csv.reader(f)
+        next(reader)  # Skip the header
         data = list(reader)
 
     # Convert the data to a NumPy array
@@ -39,7 +40,6 @@ def apply_transform_csv(csv_file, transform_matrix):
     transformed_xyz = transformed_coords[:, :3]
 
     return transformed_xyz
-
         
 def get_paper_to_base_transform(camera_to_base, paper_to_camera):
     """
@@ -55,13 +55,13 @@ def get_paper_to_base_transform(camera_to_base, paper_to_camera):
     paper_to_base = np.dot(camera_to_base, paper_to_camera)
     return paper_to_base
 
-# Do lai tren robot that
+# Measure again on a real Robot
 camera_to_robot = np.array([[1, 0, 0, 0.405],
                             [0, 1, 0, 0.28],
                             [0, 0, 1, 0.1],
                             [0, 0, 0, 1]])
 
-# Lay tu aruco ra 
+# Get it from Aruco
 paper_to_camera = np.array([[1, 0, 0, 0.5],
                             [0, 1, 0, 0.2],
                             [0, 0, 1, 0.7],
@@ -70,11 +70,11 @@ paper_to_camera = np.array([[1, 0, 0, 0.5],
 paper_to_base_transform = get_paper_to_base_transform(camera_to_robot, paper_to_camera)
 
 ######### Get the final points to send to robot for drawing
-# csv_file: tap hop cac diem anh mm trong toa do cua to giay
-# transform_matrix: ma tran de chuyen tu` vi tri diem trong paper sang vi tri diem so voi robot
-final_points = apply_transform_csv(csv_file = 'Waypoints_mm.csv', transform_matrix = paper_to_base_transform)
+# csv_file: Set of mm pixels in the coordinates of the paper
+# transform_matrix: Matrix to convert from point position in paper to point position relative to robot
+
+final_points = apply_transform_csv(csv_file = 'Waypoints_mm_scaled.csv', transform_matrix = paper_to_base_transform)
 print(final_points)
-# viet file csv moi --- abc.csv
 
 # Save the final_points array to a new CSV file
 np.savetxt('Final_Waypoints_Robot.csv', final_points, fmt='%.4f', delimiter=',', header='x,y,z', comments='')
@@ -88,4 +88,12 @@ for i, line in enumerate(lines):
     x, y, z = values
     print(f"The line {i+1} has x = {x}, y = {y}, and z = {z}")
 
+# Find and print the minimum and maximum values ​​of x and y
+x_values = final_points[:, 0]
+y_values = final_points[:, 1]
 
+x_min, x_max = x_values.min(), x_values.max()
+y_min, y_max = y_values.min(), y_values.max()
+
+print(f"Value of x from {x_min:.4f} to {x_max:.4f}")
+print(f"Value of y from {y_min:.4f} to {y_max:.4f}")

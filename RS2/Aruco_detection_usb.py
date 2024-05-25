@@ -137,7 +137,7 @@ if __name__ == '__main__':
 
 
 
-# # Create function from 2D to 3D camera
+# # Create function chuyen doi 2D sang 3D camera
 # # Typical values for RealSense D435 camera
 # RGB_RESOLUTION = (1920, 1080)  # Width, Height
 # DEPTH_RESOLUTION = (1280, 720)
