@@ -45,6 +45,7 @@ void contoursCallback(const robotSelfie::ContourList::ConstPtr& msg) {
 
         for (const auto& segment : optimized_path) {
             for (const auto& point : segment) {
+                if(segment.size()>2){
                 geometry_msgs::PoseStamped pose;
                 pose.header.frame_id = "map";
                 pose.header.stamp = ros::Time::now();
@@ -58,6 +59,7 @@ void contoursCallback(const robotSelfie::ContourList::ConstPtr& msg) {
 
         optimizedPathReceived = true;
     }
+}
 }
 
 int main(int argc, char** argv) {

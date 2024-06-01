@@ -99,10 +99,10 @@ std::vector<std::vector<Point>> optimizePathWithLiftoff(const std::vector<std::v
             }
             optimizedPath.push_back(segment);
 
-            std::vector<Point> liftoffSegment;
-            liftoffSegment.push_back({ segment.back().x, segment.back().y, 0 });
-            liftoffSegment.push_back({ segment.back().x, segment.back().y, 1 });
-            optimizedPath.push_back(liftoffSegment);
+            // std::vector<Point> liftoffSegment;
+            // liftoffSegment.push_back({ segment.back().x, segment.back().y, 0 });
+            // liftoffSegment.push_back({ segment.back().x, segment.back().y, 1 });
+            // optimizedPath.push_back(liftoffSegment);
 
             currentPoint = segment.back();
         }

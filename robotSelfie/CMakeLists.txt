@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   geometry_msgs
   roslib
+  nav_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -75,6 +76,7 @@ generate_messages(
   DEPENDENCIES
   std_msgs
   geometry_msgs
+  nav_msgs
 )
 
 ################################################
@@ -109,7 +111,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES robotSelfie
- CATKIN_DEPENDS roscpp rospy std_msgs message_runtime geometry_msgs roslib
+ CATKIN_DEPENDS roscpp rospy std_msgs message_runtime geometry_msgs roslib nav_msgs
 #  DEPENDS system_lib
 )
 
@@ -147,7 +149,7 @@ add_executable(path_optimizer src/mainWithRosMsgs.cpp src/function.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(path_optimizer ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(path_optimizer ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS} ${PROJECT_NAME}_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(path_optimizer ${catkin_LIBRARIES})
