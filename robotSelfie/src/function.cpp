@@ -1,15 +1,13 @@
 #include "function.h"
 
-
-//Calculate distance function using Phytagorean Theorem
+// Calculate the Euclidean distance between two points using the Pythagorean theorem
 double calculateDistance(const Point& p1, const Point& p2) {
     double dx = p2.x - p1.x;
     double dy = p2.y - p1.y;
     return std::sqrt(dx * dx + dy * dy);
 }
 
-
-//Function to find the nearest line from the current point 
+// Find the index of the nearest unvisited line segment from the current point
 int findNearestLine(const Point& currentPoint, const std::vector<std::vector<Point>>& lines, const std::vector<bool>& visitedLines) {
     int nearestLineIndex = -1;
     double minDistance = std::numeric_limits<double>::max();
@@ -37,8 +35,7 @@ int findNearestLine(const Point& currentPoint, const std::vector<std::vector<Poi
     return nearestLineIndex;
 }
 
-
-//Calculates the total distance travelled by all segments. Used for finding the best Point to start.
+// Calculate the total distance traveled by all segments in the path
 double calculateTotalDistance(const std::vector<std::vector<Point>>& path) {
     double totalDistance = 0.0;
     for (const auto& segment : path) {
@@ -49,22 +46,22 @@ double calculateTotalDistance(const std::vector<std::vector<Point>>& path) {
     return totalDistance;
 }
 
-
+// Optimize the path by finding the best starting point and connecting line segments with liftoff transitions
 std::vector<std::vector<Point>> optimizePathWithLiftoff(const std::vector<std::vector<Point>>& lines, bool printDistances) {
     ROS_INFO("Optimizing path");
-    
+
     std::vector<double> startPointDistances;
     std::vector<std::vector<std::vector<Point>>> optimizedPaths;
-    
+
     // Calculate the optimized path for each possible starting point
     for (const auto& line : lines) {
         std::vector<std::vector<Point>> tempLines = lines;
         std::vector<std::vector<Point>> optimizedPath;
         std::vector<bool> visitedLines(tempLines.size(), false);
-        
+
         Point currentPoint = line.front();
         currentPoint.z = 0;
-        
+
         while (true) {
             int nearestLineIndex = findNearestLine(currentPoint, tempLines, visitedLines);
 
@@ -82,7 +79,6 @@ std::vector<std::vector<Point>> optimizePathWithLiftoff(const std::vector<std::v
                 transitionPoint = nearestLine.back();
             }
 
-            double transitionDistance = calculateDistance(currentPoint, transitionPoint);
             std::vector<Point> transitionSegment;
             transitionSegment.push_back({ currentPoint.x, currentPoint.y, 1 });
             transitionSegment.push_back({ transitionPoint.x, transitionPoint.y, 1 });
@@ -99,38 +95,32 @@ std::vector<std::vector<Point>> optimizePathWithLiftoff(const std::vector<std::v
             }
             optimizedPath.push_back(segment);
 
-            // std::vector<Point> liftoffSegment;
-            // liftoffSegment.push_back({ segment.back().x, segment.back().y, 0 });
-            // liftoffSegment.push_back({ segment.back().x, segment.back().y, 1 });
-            // optimizedPath.push_back(liftoffSegment);
-
             currentPoint = segment.back();
         }
-        
+
         double totalDistance = calculateTotalDistance(optimizedPath);
         startPointDistances.push_back(totalDistance);
-        
+
         optimizedPaths.push_back(optimizedPath);
     }
-    
+
     // Find the index of the starting point with the minimum total distance
     size_t minDistanceIndex = std::min_element(startPointDistances.begin(), startPointDistances.end()) - startPointDistances.begin();
-    
+
     if (printDistances) {
         ROS_INFO("Distances for different starting points:");
         for (size_t i = 0; i < startPointDistances.size(); ++i) {
             ROS_INFO("Starting point %lu: %f", i, startPointDistances[i]);
         }
     }
-    
+
     ROS_INFO("Best starting point: %lu", minDistanceIndex);
     ROS_INFO("Minimum total distance: %f", startPointDistances[minDistanceIndex]);
-    
+
     return optimizedPaths[minDistanceIndex];
 }
 
-
-//Function to generate a csv so output can be seen.
+// Write the optimized path to a CSV file for visualization and analysis
 void writeToCsv(const std::vector<std::vector<Point>>& optimizedPath, const std::string& filename) {
     std::ofstream csvFile(filename);
     if (!csvFile.is_open()) {
@@ -148,4 +138,30 @@ void writeToCsv(const std::vector<std::vector<Point>>& optimizedPath, const std:
 
     csvFile.close();
     ROS_INFO("CSV file generated: %s", filename.c_str());
+}
+
+//Function to generate a txt file so output can be seen.
+//Function to generate a txt file so output can be seen.
+void writeToTxt(const std::vector<std::vector<Point>>& optimizedPath, const std::string& filename) {
+    std::ofstream txtFile(filename);
+    if (!txtFile.is_open()) {
+        ROS_ERROR("Failed to open file: %s", filename.c_str());
+        return;
+    }
+
+    for (const auto& segment : optimizedPath) {
+        txtFile << "{";
+        for (size_t i = 0; i < segment.size(); ++i) {
+            txtFile << "{" << segment[i].x << "," << segment[i].y << "," << segment[i].z << "}";
+            if (i < segment.size() - 1) {
+                txtFile << ",";
+            }
+            txtFile << std::endl;
+        }
+        txtFile << "}," << std::endl;
+        txtFile << std::endl;
+    }
+
+    txtFile.close();
+    ROS_INFO("TXT file generated: %s", filename.c_str());
 }
