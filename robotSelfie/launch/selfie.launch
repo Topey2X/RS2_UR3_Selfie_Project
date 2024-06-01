@@ -7,12 +7,13 @@
   </node>
   <!-- Launch the contour_publisher node -->
   <node name="contour_publisher" pkg="robotSelfie" type="main.py" output="screen"/>
-
-  <node name="contours_echo" pkg="rostopic" type="rostopic" args="echo /contours" output="screen" launch-prefix="gnome-terminal --title 'Contours Echo' -x"/>
-
+  
   <!-- Launch the path_optimizer node -->
   <node name="path_optimizer" pkg="robotSelfie" type="path_optimizer" output="screen" launch-prefix="gnome-terminal --title 'Path Optimizer' -x"/>
 
+  <node name="contours_echo" pkg="rostopic" type="rostopic" args="echo /contours" output="screen" launch-prefix="gnome-terminal --title 'Contours Echo' -x"/>
+
+ 
   <node name="optimized_path_echo" pkg="rostopic" type="rostopic" args="echo /optimized_path" output="screen" launch-prefix="gnome-terminal --title 'Optimized Path Echo' -x"/>
 
   <!-- Launch rqt_graph -->

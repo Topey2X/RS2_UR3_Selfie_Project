@@ -1,13 +1,17 @@
 #!/usr/bin/env python
 import rospy
-from geometry_msgs.msg import Point32, Point
+from geometry_msgs.msg import Point
 from robotSelfie.msg import ContourList, Contour
-from sensor_msgs.msg import Image
+from sensor_msgs.msg import Image as ImageMsg
+from std_msgs.msg import Bool
 import cv2
 
 # GUI
 import tkinter as tk
 from tkinter import messagebox
+from PIL import Image, ImageTk
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 # from img_processing import *
 # from ros_functions import *
@@ -24,27 +28,34 @@ DEBUG = False
 
 class Processor_Node:
     plots: List[Tuple[str, str, any]] = []
+    root = None # Tkinter root
     image_subscriber = None
     contour_publisher = None
     finished_subscriber = None
     has_published = False
-
+    capture_button = None
+    use_button = None
+    reset_button = None
+    capture_next_image = False
+    capture_button_sprite = None
+    use_button_sprite = None  
+    reset_button_sprite = None  
+    blank_img = None
+    figure_canvas = None
+  
     # GUI
     def create_gui(self):
         self.root = tk.Tk()
         self.root.title("RobotSelfie")
 
-        capture_image = tk.PhotoImage(
-            file="/home/darren2004/git/RS2_UR3_Selfie_Project/robotSelfie/scripts/icons/capture.png"
-        )
-        use_image = tk.PhotoImage(
-            file="/home/darren2004/git/RS2_UR3_Selfie_Project/robotSelfie/scripts/icons/tick.png"
-        )
+        self.capture_button_sprite = tk.PhotoImage(file="/home/darren2004/git/RS2_UR3_Selfie_Project/robotSelfie/scripts/icons/capture.png")
+        self.use_button_sprite = tk.PhotoImage(file="/home/darren2004/git/RS2_UR3_Selfie_Project/robotSelfie/scripts/icons/tick.png")
+        self.reset_button_sprite = tk.PhotoImage(file="/home/darren2004/git/RS2_UR3_Selfie_Project/robotSelfie/scripts/icons/reset.png")
 
         self.capture_button = tk.Button(
             self.root,
             compound=tk.BOTTOM,
-            image=capture_image,
+            image=self.capture_button_sprite,
             text="Capture",
             command=self.capture_image,
             bg="white",
@@ -54,12 +65,12 @@ class Processor_Node:
             pady=10,
             relief="raised",
         )
-        self.capture_button.pack(pady=10)
+        self.capture_button.grid(row=0,column=0,pady=10)
 
         self.use_button = tk.Button(
             self.root,
             compound=tk.BOTTOM,
-            image=use_image,
+            image=self.use_button_sprite,
             text="Use Image",
             command=self.use_image,
             state=tk.DISABLED,
@@ -69,12 +80,28 @@ class Processor_Node:
             padx=15,
             pady=8,
         )
-        self.use_button.pack(pady=5)
+        self.use_button.grid(row=1,column=0,pady=5)
         
-        self.image_label = tk.Label(self.root)
-        self.image_label.pack(side=tk.RIGHT, padx=10, pady=10)
-
-        self.root.mainloop()
+        self.reset_button = tk.Button(
+            self.root,
+            compound=tk.BOTTOM,
+            image=self.reset_button_sprite,
+            text="Reset GUI",
+            command=self.reset_gui,
+            state=tk.NORMAL,
+            bg="gray",
+            fg="white",
+            font=("Helvetica", 12),
+            padx=15,
+            pady=8,
+        )
+        self.reset_button.grid(row=2,column=0,pady=5)
+        
+        # Generate blank image initially
+        self.frame = tk.Frame(self.root)
+        self.blank_img = np.zeros((720,1280,3), dtype=np.uint8)
+        self.update_image(self.blank_img)
+        self.frame.grid(row=0, column=1, rowspan=3, padx=10, pady=10)
 
     def enable_buttons(self, capture=False, use=False):
         self.capture_button.config(state=(tk.NORMAL if capture else tk.DISABLED))
@@ -83,18 +110,24 @@ class Processor_Node:
     # Capture Image
     def capture_image(self):
         self.enable_buttons()
-        self._capture_next_image = True
-        # messagebox.showinfo(
-        #     "Capture",
-        #     "Image captured. Click 'Use Image' to process or 'Retake' to capture again.",
-        # )
+        self.capture_next_image = True
+        rospy.loginfo("Capturing image...")
 
     # Use image if it is good
     def use_image(self):
         self.enable_buttons()
-        messagebox.showinfo("Process", "Using the captured image for processing.")
+        rospy.loginfo("Using captured image...")
         self.process_captured_image()
-
+        self.update_image(plots=True)
+        
+    def reset_gui(self):
+        rospy.loginfo("Resetting GUI...")
+        self.enable_buttons(capture=True, use=False)
+        self.update_image(self.blank_img)
+        self.plots = []
+        self.has_published = False
+        self.captured_image = None
+        self.capture_next_image = False
 
     # Processed the image after the user agrees with the result
     def process_captured_image(self):
@@ -103,64 +136,64 @@ class Processor_Node:
             try:
                 processed_result = self.process_image(self.captured_image)
             except:
-                self.show_to_screen()
+                rospy.logwarn("Error processing image.")
+                messagebox.showinfo("Error", "Error processing image.")
+                self.update_image(self.blank_img)
+                self.enable_buttons(capture=True, use=False)
                 return
-
             # Publish the processed result
             self.publish_contours(processed_result)
         else:
             messagebox.showinfo("Error", "No image captured.")
 
     def process_image(self, img: MatLike) -> any:
-        self.add_plot("Image", "Webcam Image", img)
+        # self.add_plot("Image", "Webcam Image", img)
 
-        # Step 4: Convert image to grayscale
+        # Step 1: Convert image to grayscale
         img_gray = self.convert_img_to_grayscale(img)
 
-        # Step 5: Identify faces
-        face = self.identify_faces(img_gray)
+        # Step 2: Identify faces
+        face, _ = self.identify_faces(img_gray)
 
-        # Step 6: Crop to Face
+        # Step 3: Crop to Face
         cropped_img = self.crop_img_to_face(img, face, perc_increase=0.35)
         self.add_plot("Image", "Cropped to Face", cropped_img)
 
-        # Step 7: Remove Background from Face
+        # Step 4: Remove Background from Face
         no_bg_img = self.remove_background(cropped_img)
         self.add_plot("Image", "No Background", no_bg_img)
 
-        # Step 6: Normalise Image Brightness and Contrast
+        # Step 5: Normalise Image Brightness and Contrast
         normalised_img = self.normalise_brightness_contrast(
             no_bg_img, target_contrast=1.4
         )
         self.add_plot("Image", "Normalised", normalised_img)
 
-        # Step 8: Extract Edges from Face
+        # Step 6: Extract Edges from Face
         edges_img = self.extract_edges_from_face(normalised_img, upper=80, lower=130)
         self.add_plot("Image", "Edges", edges_img)
 
-        # Step 9: Extract Contours from Edges
+        # Step 7: Extract Contours from Edges
         contours, _ = self.extract_contours_from_edges(edges_img)
         self.add_plot("Contours", "Raw Contours", contours)
 
-        # Step 10: Optimise Contours #1: Simplify and Split
+        # Step 8: Optimise Contours #1: Simplify and Split
         contours = self.simplify_and_split_contours(contours)
 
-        # Step 11: Optimise Contours #2: Eliminate Negligent Contours
+        # Step 9: Optimise Contours #2: Eliminate Negligent Contours
         contours = self.eliminate_negligent_contours(contours)
 
-        # Step 12: Smooth Contours
+        # Step 10: Smooth Contours
         smoothed_contours = self.smooth_contours(contours)
         self.add_plot("Contours", "Processed Contours", smoothed_contours)
 
-        # Step 13: Publish ROS message
+        # Step 11: Publish ROS message (completed elsewhere)
         return smoothed_contours
 
     def add_plot(self, type: str, title: str, data: any) -> None:
         self.plots.append((type, title, data))
 
     def show_to_screen(self) -> None:
-        import matplotlib.pyplot as plt
-
         fig = plt.figure(figsize=(16, 8))
         columns = 4
         rows = ((len(self.plots) - 1) // columns) + 1
@@ -197,7 +230,7 @@ class Processor_Node:
     def convert_img_to_grayscale(self, img) -> any:
         return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    def identify_faces(self, img_gray) -> MatLike:
+    def identify_faces(self, img_gray) -> any:
         faceCascade = cv2.CascadeClassifier(
             cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
         )
@@ -218,7 +251,7 @@ class Processor_Node:
             if size > biggest_face[0]:
                 biggest_face = [size, face]
 
-        return biggest_face[1]
+        return biggest_face[1], img_found_faces
 
     def crop_img_to_face(self, img, face, perc_increase) -> MatLike:
         # Crop to biggest face, with a 35% increased area
@@ -398,23 +431,66 @@ class Processor_Node:
             contour_msg = Contour()
             contour_msg.points = [Point(x, y, 0.0) for x, y in contour]
             contour_list_msg.contours.append(contour_msg)
-
         # Publish the message
-        # print("Contour list message:")
-        # print(contour_list_msg)
         self.contour_publisher.publish(contour_list_msg)
+        rospy.loginfo("Contours published.")
 
     # Callback function when an image is received
     def image_callback(self, data):
-        if self._capture_next_image:
+        if self.capture_next_image:
+            rospy.loginfo("Image received")
             # Receive the image and convert to a cv2 image
             self.captured_image = CvBridge().imgmsg_to_cv2(data, "bgr8")
-            self._capture_next_image = False
+            self.capture_next_image = False
             self.enable_buttons(capture=True, use=True)
+            self.update_image(self.captured_image)
+            rospy.loginfo("Image saved, ready for confirmation ...")
+            
+    def update_image(self, img=None, plots=False):
+        for widget in self.frame.winfo_children():
+            widget.destroy()
+            
+        if plots and len(self.plots) >= 6:
+            # Display the last 6 plots
+
+            fig = plt.figure(figsize=(16, 8))
+            columns = 3
+            rows = 2
+
+            for i, (type, title, data) in enumerate(self.plots[-6:]):
+                ax = fig.add_subplot(rows, columns, i + 1)
+                if type == "Image":
+                    ax.imshow(cv2.cvtColor(data, cv2.COLOR_BGR2RGB))
+                elif type == "GreyImage":
+                    ax.imshow(data, cmap=plt.cm.gray)
+                elif type == "Contours":
+                    for contour in data:
+                        points = np.array(contour).reshape(-1, 2)
+                        ax.plot(points[:, 0], -points[:, 1])
+                    ax.set_aspect("equal")
+                ax.set_title(title)
+
+            # Create a canvas to display the figure
+            canvas = FigureCanvasTkAgg(fig, master=self.frame)
+            canvas.draw()
+            self.figure_canvas = canvas.get_tk_widget()
+            self.figure_canvas.grid(row=0, column=0, padx=10, pady=10)
+
+        else:
+            if img is None:
+                img = self.blank_img
+            # Display a single image
+            cv2_img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+            pil_img = Image.fromarray(cv2_img_rgb)
+            tk_img = ImageTk.PhotoImage(image=pil_img)
+            label = tk.Label(self.frame, image=tk_img)
+            label.image = tk_img
+            label.grid(row=0, column=0, padx=10, pady=10)
             
     def finished_callback(self, data):
         self.has_published = False
         self.captured_image = None
+        self.update_image(self.blank_img)
         self.enable_buttons(capture=True, use=False)     
 
     def main(self):
@@ -427,18 +503,19 @@ class Processor_Node:
         rospy.sleep(1)
         # Create a subscriber to listen to the webcam images
         self.image_subscriber = rospy.Subscriber(
-            "/usb_cam/image_raw", Image, self.image_callback
+            "/usb_cam/image_raw", ImageMsg, self.image_callback
         )
         self.finished_subscriber = rospy.Subscriber(
-            "finished", Image, self.finished_callback
+            "finished", Bool, self.finished_callback
         )
 
         # Initialize the captured_image attribute
         self.captured_image = None
-        self.enable_buttons(capture=True, use=False)
-
+        
         # Create the GUI
         self.create_gui()
+        self.enable_buttons(capture=True, use=False)
+
 
     ## Static image main
     def debug_main(
@@ -459,12 +536,11 @@ class Processor_Node:
         self.DEBUG = DEBUG
         if DEBUG:
             self.debug_main()
+            self.root.mainloop()
         else:
             self.main()
+            self.root.mainloop()
 
 
 if __name__ == "__main__":
     node = Processor_Node(DEBUG)
-
-    if not DEBUG:
-        rospy.spin()
