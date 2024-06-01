@@ -156,7 +156,6 @@ void writeToTxt(const std::vector<std::vector<Point>>& optimizedPath, const std:
             if (i < segment.size() - 1) {
                 txtFile << ",";
             }
-            txtFile << std::endl;
         }
         txtFile << "}," << std::endl;
         txtFile << std::endl;

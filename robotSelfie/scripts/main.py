@@ -128,6 +128,8 @@ class Processor_Node:
         self.has_published = False
         self.captured_image = None
         self.capture_next_image = False
+        # Publish a message to indicate GUI reset and new data availability
+        self.reset_publisher.publish(True)
 
     # Processed the image after the user agrees with the result
     def process_captured_image(self):
@@ -498,6 +500,10 @@ class Processor_Node:
         Main for use in ROS environment
         """
         self.contour_publisher = rospy.Publisher("contours", ContourList, queue_size=10)
+        
+        # Create a publisher for reset messages
+        self.reset_publisher = rospy.Publisher("reset_gui", Bool, queue_size=10)
+        
         # Initialize the ROS node
         rospy.init_node("image_processor")
         rospy.sleep(1)
