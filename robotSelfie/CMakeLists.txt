@@ -14,10 +14,13 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   geometry_msgs
   roslib
+  nav_msgs
 )
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -75,6 +78,7 @@ generate_messages(
   DEPENDENCIES
   std_msgs
   geometry_msgs
+  nav_msgs
 )
 
 ################################################
@@ -109,7 +113,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES robotSelfie
- CATKIN_DEPENDS roscpp rospy std_msgs message_runtime geometry_msgs roslib
+ CATKIN_DEPENDS roscpp rospy std_msgs message_runtime geometry_msgs roslib nav_msgs
 #  DEPENDS system_lib
 )
 
@@ -138,6 +142,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(path_optimizer src/mainWithRosMsgs.cpp src/function.cpp)
+add_executable(function_test test/function_test.cpp src/function.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -145,12 +150,21 @@ add_executable(path_optimizer src/mainWithRosMsgs.cpp src/function.cpp)
 ## e.g. "rosrun someones_pkg node" instead of "rosrun someones_pkg someones_pkg_node"
 # set_target_properties(${PROJECT_NAME}_node PROPERTIES OUTPUT_NAME node PREFIX "")
 
+set(FUNCTION_SOURCES
+  src/function.cpp
+)
+
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(path_optimizer ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
+add_dependencies(path_optimizer ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS} ${PROJECT_NAME}_generate_messages_cpp)
+add_dependencies(function_test ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS} ${PROJECT_NAME}_generate_messages_cpp)
 ## Specify libraries to link a library or executable target against
 target_link_libraries(path_optimizer ${catkin_LIBRARIES})
+target_link_libraries(function_test ${GTEST_LIBRARIES} ${catkin_LIBRARIES})
+
+## Add a test target to run the unit tests
+catkin_add_gtest(function_test_run test/function_test.cpp)
+target_link_libraries(function_test_run ${catkin_LIBRARIES} ${FUNCTION_SOURCES})
 
 #############
 ## Install ##
