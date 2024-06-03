@@ -73,7 +73,7 @@ paper_to_base_transform = get_paper_to_base_transform(camera_to_robot, paper_to_
 # csv_file: Set of mm pixels in the coordinates of the paper
 # transform_matrix: Matrix to convert from point position in paper to point position relative to robot
 
-final_points = apply_transform_csv(csv_file = 'Waypoints_mm_scaled.csv', transform_matrix = paper_to_base_transform)
+final_points = apply_transform_csv(csv_file = '/home/jacob/git/RS2_UR3_Selfie_Project/RS2/scripts/Waypoints_mm_scaled.csv', transform_matrix = paper_to_base_transform)
 print(final_points)
 
 # Save the final_points array to a new CSV file

@@ -6,9 +6,9 @@ image_width = 450
 image_height = 400
 paper_width_mm = 297
 paper_height_mm = 210
-input_file = 'Waypoints.csv'
-output_file = 'Waypoints_mm.csv'
-scaled_output_file = 'Waypoints_mm_scaled.csv'
+input_file = "/home/jacob/git/RS2_UR3_Selfie_Project/RS2/scripts/Waypoints.csv"
+output_file = '/home/jacob/git/RS2_UR3_Selfie_Project/RS2/scripts/Waypoints_mm.csv'
+scaled_output_file = '/home/jacob/git/RS2_UR3_Selfie_Project/RS2/scripts/Waypoints_mm_scaled.csv'
 
 def pixel_to_mm(input_file, output_file, image_width, image_height, paper_width_mm, paper_height_mm):
     """

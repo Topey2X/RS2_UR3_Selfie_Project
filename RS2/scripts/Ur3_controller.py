@@ -9,21 +9,21 @@ from geometry_msgs.msg import Pose
 import numpy as np
 import csv
 import pandas as pd
-def read_csv(nearestLineMM):
-    """Reads point data from a CSV file and converts units from mm to m"""
-    data = []
-    with open(nearestLineMM, 'r') as csvfile:
-        # Read the entire file content as a string
-        content = csvfile.read()
-        # Split the string by commas and newlines
-        rows = [line.split(',') for line in content.splitlines()]
-        for row in rows:
-            # Filter out empty values before converting to floats
-            filtered_row = [v for v in row if v]
-            if len(filtered_row) == 3:
-                x, y, z = map(lambda v: float(v) / 1000, filtered_row)  # Convert mm to m
-                data.append([x, y, z])
-    return data
+# def read_csv(nearestLineMM):
+#     """Reads point data from a CSV file and converts units from mm to m"""
+#     data = []
+#     with open(nearestLineMM, 'r') as csvfile:
+#         # Read the entire file content as a string
+#         content = csvfile.read()
+#         # Split the string by commas and newlines
+#         rows = [line.split(',') for line in content.splitlines()]
+#         for row in rows:
+#             # Filter out empty values before converting to floats
+#             filtered_row = [v for v in row if v]
+#             if len(filtered_row) == 3:
+#                 x, y, z = map(lambda v: float(v) / 1000, filtered_row)  # Convert mm to m
+#                 data.append([x, y, z])
+#     return data
 def move_ur3e_by_pose():
     moveit_commander.roscpp_initialize(sys.argv)
     rospy.init_node('move_ur3e_node', anonymous=True)
@@ -117,33 +117,70 @@ if __name__ == '__main__':
         # move_ur3e_by_joints()
         waypoints = []
         pose = Pose()
-        pose.position.x = 0.35 
+        pose.position.x = 0.2
         pose.position.y = 0.3
-        pose.position.z = 0.4
-        pose.orientation.w = 1.0
-        waypoints.append(pose)
-
-        pose = Pose()
-        pose.position.x = 0.3 
-        pose.position.y = 0.2 
-        pose.position.z = 0.4
-        pose.orientation.w = 1.0
-        waypoints.append(pose)
-        
-        
-        pose = Pose()
-        pose.position.x = 0.2 
-        pose.position.y = 0.3 
-        pose.position.z = 0.45
-        pose.orientation.w = 1.0
-        waypoints.append(pose)
-
-        pose = Pose()
-        pose.position.x = 0.3 
-        pose.position.y = 0.25 
         pose.position.z = 0.2
         pose.orientation.w = 1.0
         waypoints.append(pose)
+        
+        pose = Pose()
+        pose.position.x = 0.1
+        pose.position.y = 0.3
+        pose.position.z = 0.1
+        pose.orientation.w = 1.0
+        waypoints.append(pose)
+        
+        pose = Pose()
+        pose.position.x = 0.3
+        pose.position.y = 0.1
+        pose.position.z = 0.1
+        pose.orientation.w = 1.0
+        waypoints.append(pose)
+
+
+
+        # pose = Pose()
+        # pose.position.x = 58.0901/1000
+        # pose.position.y = 147.0046/1000
+        # pose.position.z = 0.8000/1000
+        # pose.orientation.w = 1.0
+        # waypoints.append(pose)
+        
+        # pose = Pose()
+        # pose.position.x = 58.6596/1000
+        # pose.position.y = 148.3154/1000
+        # pose.position.z = 0.8000/1000
+        # pose.orientation.w = 1.0
+        # waypoints.append(pose)
+        
+        # pose = Pose()
+        # pose.position.x = 59.1915/1000
+        # pose.position.y = 149.3076/1000
+        # pose.position.z = 0.8000/1000
+        # pose.orientation.w = 1.0
+        # waypoints.append(pose)
+        
+        # pose = Pose()
+        # pose.position.x =60.8551/1000
+        # pose.position.y = 151.7254/1000
+        # pose.position.z = 0.8000/1000
+        # pose.orientation.w = 1.0
+        # waypoints.append(pose)
+        
+        
+        # pose = Pose()
+        # pose.position.x = 0.2 
+        # pose.position.y = 0.3 
+        # pose.position.z = 0.45
+        # pose.orientation.w = 1.0
+        # waypoints.append(pose)
+
+        # pose = Pose()
+        # pose.position.x = 0.3 
+        # pose.position.y = 0.25 
+        # pose.position.z = 0.2
+        # pose.orientation.w = 1.0
+        # waypoints.append(pose)
 
         
         # -5 -39 58 242 270 -115

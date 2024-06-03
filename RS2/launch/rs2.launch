@@ -1,0 +1,4 @@
+<launch>
+  <!-- Launch the Aruco detection node -->
+  <node name="Run_Final" pkg="RS2" type="Run_Final.py" output="screen" />
+</launch>
