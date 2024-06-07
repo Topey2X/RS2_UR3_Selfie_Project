@@ -501,9 +501,6 @@ class Processor_Node:
         """
         self.contour_publisher = rospy.Publisher("contours", ContourList, queue_size=10)
         
-        # Create a publisher for reset messages
-        self.reset_publisher = rospy.Publisher("reset_gui", Bool, queue_size=10)
-        
         # Initialize the ROS node
         rospy.init_node("image_processor")
         rospy.sleep(1)
@@ -523,7 +520,7 @@ class Processor_Node:
         self.enable_buttons(capture=True, use=False)
 
 
-    ## Static image main
+    ## DEPRECIATED - UNTESTED
     def debug_main(
         self,
     ):

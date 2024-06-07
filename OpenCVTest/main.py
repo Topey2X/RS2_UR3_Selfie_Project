@@ -87,7 +87,7 @@ def save_contours(contours):
 
 if __name__ == '__main__':
   if DEBUG:
-    img = cv2.imread("OpenCVTest/assets/two_faces.jpg")
+    img = cv2.imread("OpenCVTest/assets/three_faces.jpg")
     save_contours(process_image(img))
     show_to_screen()
   else:
